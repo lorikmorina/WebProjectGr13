@@ -1,9 +1,403 @@
 <?php
-    include('dbConfing.php');
-
-    echo "Hello World";
-    echo "First Commit";
-    echo "Second Commit";
-    echo "Third Commit";
-
+    session_start();
+    $user = $_SESSION['user'];
 ?>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/49b85c6328.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <section id="header">
+        <a href="index.html"><img src="logo2.png" alt="" width="150px" class="logo"></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html"><?php if(isset($user)) {
+                    echo $user;
+
+                } else {
+                    echo "Home";
+                }
+                ?></a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-bag"></i></a></li>
+                <a href="#" id="close"> <i class="fa fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+
+            <a href="shop.html"><i class="fa fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <section id="hero">
+        <h4>New titles coming</h4>
+        <h2>Best Prices</h2>
+        <h1>On all Bestsellers</h1>
+        <p>Save more with coupons & up to 40% off!</p>
+        <a href="#goto"><button id="shbutton">Shop Now</button></a>
+    </section>
+    <section id="feature" class="section-p1">
+        <div class="feature-box">
+            <img src="feature1.jpg" alt="image">
+            <h6>Quality Books</h6>
+
+        </div>
+        <div class="feature-box">
+            <img src="feature1.jpg" alt="image">
+            <h6>Lowest prices</h6>
+
+        </div>
+        <div class="feature-box">
+            <img src="feature1.jpg" alt="image">
+            <h6>Fastest Shipping</h6>
+
+        </div>
+        <div class="feature-box">
+            <img src="feature1.jpg" alt="image">
+            <h6>Free Shipping</h6>
+
+        </div>
+
+    </section>
+    <div id="goto"></div>
+    <br><br><br>
+    <section id="products" class="section-p1">
+        <h2>Featured Books</h2>
+        <p>Most loved Books right now</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="firstCover.jpg" alt="image">
+                <div class="description">
+                    <span>J.K Rowling</span>
+                    <h5>Harry Potter and the Philosopher's Stone</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>12$</h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="cover2.jpg" alt="image">
+                <div class="description">
+                    <span>J.K Rowling</span>
+                    <h5>Harry Potter and the Prisoner of Azkaban</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>12$</h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="cover3.jpg" alt="image">
+                <div class="description">
+                    <span>George R. Martin</span>
+                    <h5>Game of Thrones</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>24$</h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="cover4.jpg" alt="image">
+                <div class="description">
+                    <span>George R. Martin</span>
+                    <h5>The Winds of Winter</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>24$</h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="firstCover.jpg" alt="image">
+                <div class="description">
+                    <span>J.K Rowling</span>
+                    <h5>Harry Potter and the Philosopher's Stone</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>12$</h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="cover2.jpg" alt="image">
+                <div class="description">
+                    <span>J.K Rowling</span>
+                    <h5>Harry Potter and the Prisoner of Azkaban</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>12$</h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="cover3.jpg" alt="image">
+                <div class="description">
+                    <span>George R. Martin</span>
+                    <h5>Game of Thrones</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>24$</h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="cover4.jpg" alt="image">
+                <div class="description">
+                    <span>George R. Martin</span>
+                    <h5>The Winds of Winter</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>24$</h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+        </div>
+    </section>
+    <section id="banner" class="section-m1">
+        <h4>Borrow Books</h4>
+        <h2>Get the <span>Best Offers</span>- To Borrow all kinds of books</h2>
+        <button class="normal">Explore More</button>
+
+    </section>
+    <section id="products" class="section-p1">
+        <h2>New Arrivals</h2>
+        <p>Newest Trending Books</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="firstCover.jpg" alt="image">
+                <div class="description">
+                    <span id="author1"></span>
+                    <h5 id="bookName1"></h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 id="bookPrice1"></h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="cover2.jpg" alt="image">
+                <div class="description">
+                    <span id="author2"></span>
+                    <h5 id="bookName2"></h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 id="bookPrice2"></h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="cover3.jpg" alt="image">
+                <div class="description">
+                    <span id="author3"></span>
+                    <h5 id="bookName3"></h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 id="bookPrice3"></h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="cover4.jpg" alt="image">
+                <div class="description">
+                    <span id="author4"></span>
+                    <h5 id="bookName4"></h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 id="bookPrice4"></h4>
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+
+        </div>
+    </section>
+    <section id="sm-banner" class="section-p1">
+        <div class="banner-box">
+            <h4>New Deal</h4>
+            <h2>buy one get one free</h2>
+            <span>the best classic books are on sale</span>
+            <button class="white">Learn More</button>
+
+        </div>
+        <div class="banner-box banner-box2">
+            <h4>bestsellers</h4>
+            <h2>explore deals on bestselling books</h2>
+            <span>if everyone is reading it, it must be good</span>
+            <button class="white">Collection</button>
+
+        </div>
+    </section>
+
+
+    <section id="banner3">
+        <div class="banner-box">
+
+            <h2>Winter Sale</h2>
+            <h3>Winter is cozy with a good book</h3>
+
+
+        </div>
+        <div class="banner-box banner-box2 ">
+
+            <h2>Winter Sale</h2>
+            <h3>Winter is cozy with a good book</h3>
+
+
+        </div>
+        <div class="banner-box banner-box3">
+
+            <h2>Winter Sale</h2>
+            <h3>Winter is cozy with a good book</h3>
+
+
+        </div>
+    </section>
+    <abbr id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletter</h4>
+            <p>Get E-Mail updates about our latest arivals and <span class="cssContent"></span> </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </abbr>
+    <footer class="section-p1">
+        <div class="col">
+            <img src="logo2.png" class="logo" alt="" width="100px">
+            <h4>Contact</h4>
+            <p> <strong>Address:</strong> 231 Prishtin Afrim Zhitia, 10000</p>
+            <p> <strong>Phone:</strong> 049346316</p>
+            <p> <strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+            <a href="mailto: proread@info.com">
+                <p> <strong>Email:</strong> proread@info.com</p>
+            </a>
+
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/proread_official" id="geturl1"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.pinterest.com" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                    <button id="getButton" onclick="getUrla()">CLICK</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About Us</a>
+            <a href="https://instagram.com/proread_official">Delivery information</a>
+            <a href="https://instagram.com/proread_official">Privacy Policy</a>
+            <a href="https://instagram.com/proread_official">Terms & Conditions</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="signin.html">Sign In</a>
+            <a href="https://instagram.com/proread_official">View Cart</a>
+            <a href="https://instagram.com/proread_official">My Wishlist</a>
+            <a href="https://instagram.com/proread_official">Track My Order</a>
+            <a href="https://instagram.com/proread_official">Help</a>
+        </div>
+        <div class="col install">
+            <h4>Install <abbr title="Application">App</abbr> </h4>
+            <p>From Appstore or Google Play</p>
+            <div class="row">
+                <img src="app.png" alt="" width="100px">
+                <img src="play.png" alt="" width="100px">
+                <p>Secured Payment Gateways</p>
+                <img src="pay.png" alt="" width="200px">
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2023, ProRead, Best Local Online Book Store</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

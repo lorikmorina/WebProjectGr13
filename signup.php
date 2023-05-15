@@ -18,9 +18,6 @@
 
     $stmt->execute();
 
-    // Execute the statement
-    $stmt->execute();
-
     echo "User inserted successfully";
 
 ?>
