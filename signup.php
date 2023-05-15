@@ -1,30 +1,26 @@
 <?php
-    include('dbConfig.php');
-    $fullname = $_POST["Fullname"];
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+    require_once('dbConfig.php');
+   
+     // Set the values of the parameters
+     $fullname = $_POST["Fullname"];
+     $username = $_POST["username"];
+     $email = $_POST["email"];
+     $password = $_POST["password"];
+     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+ 
+     $sql = "INSERT INTO users (id, fullName, email, username, saltedHash) VALUES (NULL, :fullname, :email, :username, :saltedHash)";
+     $stmt = $conn->prepare($sql);
 
-  
-    $query = "SELECT * FROM users WHERE username = '$username' OR email = '$email'";
-    $result = mysqli_query($conn, $query);
+    $stmt->bindParam(':fullname', $fullname);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':saltedHash', $hashed_password);
 
-    if (mysqli_num_rows($result) > 0) {
-        echo "Username or email already taken.";
-        header("refresh:2;url=signup.html");
-        exit();
-    }
+    $stmt->execute();
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    // Execute the statement
+    $stmt->execute();
 
-    $query = "INSERT INTO users (id, username, email, fullname, salted_hash) VALUES ('NULL','$username', '$email', '$fullname','$hashedPassword')";
-    if (mysqli_query($conn, $query)) {
-        echo "Sign-up successful. You can now login.";
-
-    } else {
-        echo "Error: " . mysqli_error($conn);
-    }
-
-    mysqli_close($conn);
+    echo "User inserted successfully";
 
 ?>
