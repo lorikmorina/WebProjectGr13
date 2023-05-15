@@ -19,5 +19,5 @@
     $stmt->execute();
 
     echo "User inserted successfully";
-
+    
 ?>

@@ -1,7 +1,4 @@
-<?php
-    session_start();
-    $user = $_SESSION['user'];
-?>
+<?php session_start();?>
 <!DOCTYPE html>
 
 <html>
@@ -23,23 +20,23 @@
 
 
     <section id="header">
-        <a href="index.html"><img src="logo2.png" alt="" width="150px" class="logo"></a>
+        <a href="index.php"><img src="logo2.png" alt="" width="150px" class="logo"></a>
 
         <div>
             <ul id="navbar">
-                <li><a class="active" href="index.html"><?php if(isset($user)) {
-                    echo $user;
-
-                } else {
-                    echo "Home";
-                }
-                ?></a></li>
+                <li><a class="active" href="index.php">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-bag"></i></a></li>
                 <a href="#" id="close"> <i class="fa fa-times"></i></a>
+                <li>
+                <?php if(isset($_SESSION['user'])) {
+                        ?><a href="profile.php"><i class="fa-solid fa-user" style="color:white"></i></a></li>
+                <?php
+                    }
+                ?>
             </ul>
         </div>
         <div id="mobile">

@@ -9,11 +9,17 @@ try {
     $stmt->bindParam(':username', $username);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
     $hashedPassword = $user['saltedHash'];
+    $id = $user['id'];
+    $email = $user['email'];
+
     if ($user) {
 
         if (password_verify($password, $hashedPassword)) {
             $_SESSION['user'] = $username;
+            $_SESSION['id'] = $id;
+            $_SESSION['email'] = $email;
             header("location: index.php");
         } else {
             echo "Password is incorrect!";
