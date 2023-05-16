@@ -107,6 +107,11 @@ $showParagraph = false;
 								  	<input type="text" class="form-control" value="UI Developer">
 								</div>
 							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<a href="logout.php" class="">Logout</a>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
