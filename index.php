@@ -100,6 +100,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <h2>Featured Books</h2>
         <p>Most loved Books right now</p>
         <div class="pro-container">
+            <!-- iterate through list and display a div for each -->
             <?php 
             foreach ($products as $product) {?>
 
@@ -109,10 +110,11 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <span><?php echo $product['author']; ?></span>
                     <h5><?php echo $product['title']; ?></h5>
                     <div class="star">
+                        <!-- full stars -->
                     <?php for ($i = 0; $i < $product['rating']; $i++) {?>
                         <i class="fas fa-star"></i>
                          <?php   }?>
-
+                            <!-- empty stars -->
                          <?php for ($i = 0; $i < 5 - $product['rating']; $i++) {?>
                         <i class="far fa-star"></i>
                          <?php   }?>
