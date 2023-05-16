@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,25 +14,37 @@
 </head>
 
 <body>
-    <nav id="header">
-        <a href="index.html"><img src="logo2.png" alt="" width="150px" class="logo"></a>
+<section id="header">
+        <a href="index.php"><img src="logo2.png" alt="" width="150px" class="logo"></a>
 
         <div>
             <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a class="active" href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
-                <a href="#" id="close"><i class="far fa-times"></i></a>
+                <li><a  href="index.php">Home</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="blog.php">Blog</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
+                <a href="#" id="close"> <i class="fa fa-times"></i></a>
+                <li>
+                <?php if(isset($_SESSION['user'])) {
+                        ?><a href="profile.php"><i class="fa-solid fa-user" style="color:white"></i></a></li>
+                <?php
+                    }else {
+                        ?>
+                         <a href="signin.html">Login</a>
+                        <?php 
+                    }
+                ?>
             </ul>
         </div>
         <div id="mobile">
-            <a href="cart.html"><i class="fa fa-shopping-bag"></i></a>
+
+            <a class="active" href="shop.php"><i class="fa fa-shopping-bag"></i></a>
             <i id="bar" class="fas fa-outdent"></i>
         </div>
-    </nav>
+    </section>
+    
 
     <section id="page-header" class="blog-header">
 

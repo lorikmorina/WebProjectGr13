@@ -1,4 +1,6 @@
 <?php session_start();
+$showParagraph = false;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,21 +13,41 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<section id="header">
+        <a href="index.php"><img src="logo2.png" alt="" width="150px" class="logo"></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="blog.php">Blog</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
+                <a href="#" id="close"> <i class="fa fa-times"></i></a>
+				<li><a class="active" href="profile.php">Login</a></li>
+            </ul>
+        </div>
+        <div id="mobile">
+
+            <a href="shop.php"><i class="fa fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
 	<form action="profile_edit.php" method="POST">
 	<section class="py-5 my-5" >
 		<div class="container">
 			<h1 class="mb-5">Profile</h1>
 			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
-				<div class="profile-tab-nav border-right" >
+				<div class="profile-tab-nav border-right" style="min-width: 250px;">
 					<div class="p-4">
-						<div class="img-circle text-center mb-3"  style="width: 100px;">
-							<img src="img/user2.jpg" alt="Image" class="shadow">
+						<div class="img-circle text-center mb-3" >
+								<img src="lorik.jpg" alt="Image" class="shadow" style="height: 150px;width: 150px;border-radius: 100%;border: 5px solid #fff;">
 						</div>
-						<h4 class="text-center">Kiran Acharya</h4>
 					</div>
 					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
-							<i class="fa fa-home text-center mr-1"></i> 
+							<i class="fa fa-home text-center mr-1" style="	width: 20px;"></i> 
 							Account
 						</a>
 						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
@@ -207,6 +229,7 @@
 				</div>
 			</div>
 		</div>
+
 	</section>
 </form>
 
@@ -214,5 +237,7 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script>
+</script>
 </body>
 </html>

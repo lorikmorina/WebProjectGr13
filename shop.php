@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,26 +13,37 @@
 </head>
 
 <body>
-    <section id="header">
-        <a href="index.html"><img src="logo2.png" alt="" width="150px" class="logo"></a>
+<section id="header">
+        <a href="index.php"><img src="logo2.png" alt="" width="150px" class="logo"></a>
 
         <div>
             <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a class="active" href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-bag"></i></a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a class="active"  href="shop.php">Shop</a></li>
+                <li><a href="blog.php">Blog</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
                 <a href="#" id="close"> <i class="fa fa-times"></i></a>
+                <li>
+                <?php if(isset($_SESSION['user'])) {
+                        ?><a href="profile.php"><i class="fa-solid fa-user" style="color:white"></i></a></li>
+                <?php
+                    }else {
+                        ?>
+                         <a href="signin.html">Login</a>
+                        <?php 
+                    }
+                ?>
             </ul>
         </div>
         <div id="mobile">
 
-            <a href="#"><i class="fa fa-shopping-bag"></i></a>
+            <a href="shop.php"><i class="fa fa-shopping-bag"></i></a>
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
+    
 
     <section id="page-header">
 
@@ -49,7 +61,7 @@
     <section id="products" class="section-p1">
 
         <div class="pro-container">
-            <div class="pro" onclick="window.location.href='sproduct.html';">
+            <div class="pro" onclick="window.location.href='sproduct.php';">
                 <img src="firstCover.jpg" alt="image">
                 <div class="description">
                     <span>J.K Rowling</span>
@@ -347,15 +359,15 @@
         </div>
         <div class="col">
             <h4>About</h4>
-            <a href="about.html">About Us</a>
+            <a href="about.php">About Us</a>
             <a href="https://instagram.com/proread_official">Delivery information</a>
             <a href="https://instagram.com/proread_official">Privacy Policy</a>
             <a href="https://instagram.com/proread_official">Terms & Conditions</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="contact.php">Contact Us</a>
         </div>
         <div class="col">
             <h4>My Account</h4>
-            <a href="signin.html">Sign In</a>
+            <a href="signin.php">Sign In</a>
             <a href="https://instagram.com/proread_official">View Cart</a>
             <a href="https://instagram.com/proread_official">My Wishlist</a>
             <a href="https://instagram.com/proread_official">Track My Order</a>

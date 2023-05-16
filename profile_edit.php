@@ -23,6 +23,7 @@
                 $stmt->bindParam(':new_saltedHash', $hashed_new_password);
                 $stmt->bindParam(':username', $_SESSION['user']);
                 $stmt->execute();
+                echo "<br>PASSWORD CHANDED SUSCCESFULLY";
             }else{
                 echo "Passowrd not correct";
             }
