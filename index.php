@@ -1,4 +1,19 @@
-<?php session_start();?>
+<?php 
+session_start();
+
+require_once("dbConfig.php");
+
+$query = "SELECT * FROM products";
+// Prepare and execute the query
+$stmt = $conn->prepare($query);
+$stmt->execute();
+
+// Fetch all the rows as associative array
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+
+
+?>
 <!DOCTYPE html>
 
 <html>
@@ -85,134 +100,33 @@
         <h2>Featured Books</h2>
         <p>Most loved Books right now</p>
         <div class="pro-container">
+            <?php 
+            foreach ($products as $product) {?>
+
             <div class="pro">
-                <img src="firstCover.jpg" alt="image">
+                <img src="<?php echo $product['image']; ?>" alt="image">
                 <div class="description">
-                    <span>J.K Rowling</span>
-                    <h5>Harry Potter and the Philosopher's Stone</h5>
+                    <span><?php echo $product['author']; ?></span>
+                    <h5><?php echo $product['title']; ?></h5>
                     <div class="star">
+                    <?php for ($i = 0; $i < $product['rating']; $i++) {?>
                         <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                         <?php   }?>
+
+                         <?php for ($i = 0; $i < 5 - $product['rating']; $i++) {?>
+                        <i class="far fa-star"></i>
+                         <?php   }?>
                     </div>
-                    <h4>12$</h4>
+                    <h4><?php echo $product['price']; ?>€</h4>
                 </div>
                 <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro">
-                <img src="cover2.jpg" alt="image">
-                <div class="description">
-                    <span>J.K Rowling</span>
-                    <h5>Harry Potter and the Prisoner of Azkaban</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>12$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover3.jpg" alt="image">
-                <div class="description">
-                    <span>George R. Martin</span>
-                    <h5>Game of Thrones</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>24$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover4.jpg" alt="image">
-                <div class="description">
-                    <span>George R. Martin</span>
-                    <h5>The Winds of Winter</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>24$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="firstCover.jpg" alt="image">
-                <div class="description">
-                    <span>J.K Rowling</span>
-                    <h5>Harry Potter and the Philosopher's Stone</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>12$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover2.jpg" alt="image">
-                <div class="description">
-                    <span>J.K Rowling</span>
-                    <h5>Harry Potter and the Prisoner of Azkaban</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>12$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover3.jpg" alt="image">
-                <div class="description">
-                    <span>George R. Martin</span>
-                    <h5>Game of Thrones</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>24$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover4.jpg" alt="image">
-                <div class="description">
-                    <span>George R. Martin</span>
-                    <h5>The Winds of Winter</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>24$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
+
+           <?php }
+            
+            ?>
+            
+            
         </div>
     </section>
     <section id="banner" class="section-m1">
@@ -225,71 +139,33 @@
         <h2>New Arrivals</h2>
         <p>Newest Trending Books</p>
         <div class="pro-container">
+            <?php 
+            foreach ($products as $product) {?>
+
             <div class="pro">
-                <img src="firstCover.jpg" alt="image">
+                <img src="<?php echo $product['image']; ?>" alt="image">
                 <div class="description">
-                    <span id="author1"></span>
-                    <h5 id="bookName1"></h5>
+                    <span><?php echo $product['author']; ?></span>
+                    <h5><?php echo $product['title']; ?></h5>
                     <div class="star">
+                    <?php for ($i = 0; $i < $product['rating']; $i++) {?>
                         <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                         <?php   }?>
+
+                         <?php for ($i = 0; $i < 5 - $product['rating']; $i++) {?>
+                        <i class="far fa-star"></i>
+                         <?php   }?>
                     </div>
-                    <h4 id="bookPrice1"></h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover2.jpg" alt="image">
-                <div class="description">
-                    <span id="author2"></span>
-                    <h5 id="bookName2"></h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 id="bookPrice2"></h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover3.jpg" alt="image">
-                <div class="description">
-                    <span id="author3"></span>
-                    <h5 id="bookName3"></h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 id="bookPrice3"></h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover4.jpg" alt="image">
-                <div class="description">
-                    <span id="author4"></span>
-                    <h5 id="bookName4"></h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4 id="bookPrice4"></h4>
+                    <h4><?php echo $product['price']; ?>€</h4>
                 </div>
                 <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
             </div>
 
+           <?php }
+            
+            ?>
+            
+            
         </div>
     </section>
     <section id="sm-banner" class="section-p1">
