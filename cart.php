@@ -69,33 +69,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr id="pro1">
-            
-                    <td><a  onclick="removeProduct(document.getElementById('pro1'))"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="https://b3c4r2f7.stackpathcdn.com/24350-home_default/sekretet-e-familjes-tajd.jpg"
-                            alt=""></td>
-                    <td id="product1"></td>
-                    <td id="price1"></td>
-                    <td><input type="number" value="1"></td>
-                    <td>$67.35</td>
-                </tr>
-                <tr id="pro2">
-                    <td ><a  onclick="removeProduct(document.getElementById('pro2'))" ><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="https://karma.al/wp-content/uploads/2021/03/Libra-me-Fanashkence-ne-Shitje-Bli-Online.jpg"
-                            alt=""></td>
-                    <td id="product2"></td>
-                    <td id="price2"></td>
-                    <td><input type="number" value="1"></td>
-                    <td>$34.54</td>
-                </tr>
-                <tr id="pro3">
-                    <td><a  onclick="removeProduct(document.getElementById('pro3'))"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="https://www.librat.al/rc/thm_8266.jpg" alt=""></td>
-                    <td id="product3">Kura e Shopenhauerit</td>
-                    <td id="price3">$72.23</td>
-                    <td><input type="number" value="1"></td>
-                    <td>$72.23</td>
-                </tr>
+                <?php
+                    include('addtocart.php');
+                    if (isset($_SESSION['cart'])) {
+                        foreach ($_SESSION['cart'] as $row) {
+                            echo $row;
+                        }
+                    }
+                ?>
             </tbody>
         </table>
     </section>
@@ -217,3 +198,7 @@
 </body>
 
 </html>
+<?php
+
+    echo $i+=1;
+?>

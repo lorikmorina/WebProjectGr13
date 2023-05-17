@@ -1,4 +1,5 @@
-<?php session_start();?>
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,9 +79,9 @@
             <h4>Newest Books</h4>
             <h2 id="price">$12.00</h2>
 
-            <form action="#" autocomplete="off">
+            <form action="cart.php" method="POST" autocomplete="off">
                 <label>Quantity: </label>
-                <input type="number" id="quantity" onchange="totalPrice(document.getElementById('quantity').value)"
+                <input type="number" id="quantity" name="quantity" onchange="totalPrice(document.getElementById('quantity').value)"
                     value="1" min="1">
                 <label for="select">Type: </label>
                 <select id="select">
@@ -90,7 +91,7 @@
                     <option value="Hardcover">Hardcover</option>
 
                 </select>
-                <button class="normal" onclick="checkStock(document.getElementById('quantity').value)">Add to
+                <button class="normal" name="addtocart" onclick="checkStock(document.getElementById('quantity').value)">Add to
                     Cart</button>
             </form>
 
