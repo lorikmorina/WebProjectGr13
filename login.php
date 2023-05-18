@@ -1,3 +1,10 @@
+<?php 
+$errorMsg = $_GET['error'];
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,6 +48,7 @@
         <form method="POST" action="signin.php">
             <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
             <h4 class="modal-title">Login to Your Account</h4>
+            <p style="color: red;"><?php echo $errorMsg; ?></p>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Username" required="required" name="username">
             </div>
@@ -53,7 +61,7 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
         </form>
-        <div class="text-center small" id="noAcc">Don't have an account? <a href="#">Sign up</a></div>
+        <div class="text-center small" id="noAcc">Don't have an account? <a href="createAcc.php">Sign up</a></div>
     </div>
 </body>
 

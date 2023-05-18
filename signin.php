@@ -22,10 +22,11 @@ try {
             $_SESSION['email'] = $email;
             header("location: index.php");
         } else {
-            echo "Password is incorrect!";
+            header("location: login.php?error=Password is incorrect!");
+
         }
     } else {
-        echo "User not found!";
+        header("location: login.php?error=User not found!");
     }
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();

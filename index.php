@@ -3,7 +3,7 @@ session_start();
 
 require_once("dbConfig.php");
 
-$query = "SELECT * FROM products";
+$query = "SELECT * FROM products LIMIT 8";
 // Prepare and execute the query
 $stmt = $conn->prepare($query);
 $stmt->execute();
@@ -52,7 +52,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php
                     }else {
                         ?>
-                         <a href="signin.html">Login</a>
+                         <a href="login.php">Login</a>
                         <?php 
                     }
                 ?>

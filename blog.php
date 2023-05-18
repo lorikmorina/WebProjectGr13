@@ -50,9 +50,7 @@
         <h2>#readmore</h2>
 
         <p id="changeTake">Real all our case studies about our products</p>
-        <div>
-            <button class="normal" onclick="changeF()">CHANGE</button>
-    </div>
+        
     </section>
 
     

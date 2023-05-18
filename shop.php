@@ -1,4 +1,20 @@
-<?php session_start();?>
+<?php 
+
+session_start();
+
+require_once("dbConfig.php");
+$offset = $_GET['page'] * 12;
+$query = "SELECT * FROM products LIMIT 12 OFFSET $offset";
+// Prepare and execute the query
+$stmt = $conn->prepare($query);
+$stmt->execute();
+
+// Fetch all the rows as associative array
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,9 +66,7 @@
         <h2>Shop from Home</h2>
 
         <p>Save more with coupons & up to 40% off!</p>
-        <div>
-            <button class="normal" onclick="getRandomImage()">Random Suggestion</button>
-        </div>
+        
         <h3 id="randomTitle"></h3>
 
 
@@ -61,270 +75,40 @@
     <section id="products" class="section-p1">
 
         <div class="pro-container">
-            <div class="pro" onclick="window.location.href='sproduct.php';">
-                <img src="firstCover.jpg" alt="image">
-                <div class="description">
-                    <span>J.K Rowling</span>
-                    <h5>Harry Potter and the Philosopher's Stone</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>12$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
+             <!-- iterate through list and display a div for each -->
+             <?php 
+            foreach ($products as $product) {?>
+
             <div class="pro">
-                <img src="cover2.jpg" alt="image">
+                <img src="<?php echo $product['image']; ?>" alt="image">
                 <div class="description">
-                    <span>J.K Rowling</span>
-                    <h5>Harry Potter and the Prisoner of Azkaban</h5>
+                    <span><?php echo $product['author']; ?></span>
+                    <h5><?php echo $product['title']; ?></h5>
                     <div class="star">
+                        <!-- full stars -->
+                    <?php for ($i = 0; $i < $product['rating']; $i++) {?>
                         <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                         <?php   }?>
+                            <!-- empty stars -->
+                         <?php for ($i = 0; $i < 5 - $product['rating']; $i++) {?>
+                        <i class="far fa-star"></i>
+                         <?php   }?>
                     </div>
-                    <h4>12$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover3.jpg" alt="image">
-                <div class="description">
-                    <span>George R. Martin</span>
-                    <h5>Game of Thrones</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>24$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover4.jpg" alt="image">
-                <div class="description">
-                    <span>George R. Martin</span>
-                    <h5>The Winds of Winter</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>24$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="firstCover.jpg" alt="image">
-                <div class="description">
-                    <span>J.K Rowling</span>
-                    <h5>Harry Potter and the Philosopher's Stone</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>12$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover2.jpg" alt="image">
-                <div class="description">
-                    <span>J.K Rowling</span>
-                    <h5>Harry Potter and the Prisoner of Azkaban</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>12$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover3.jpg" alt="image">
-                <div class="description">
-                    <span>George R. Martin</span>
-                    <h5>Game of Thrones</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>24$</h4>
-                </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-            </div>
-            <div class="pro">
-                <img src="cover4.jpg" alt="image">
-                <div class="description">
-                    <span>George R. Martin</span>
-                    <h5>The Winds of Winter</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>24$</h4>
+                    <h4><?php echo $product['price']; ?>€</h4>
                 </div>
                 <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
             </div>
 
-            <div class="pro-container">
-                <div class="pro">
-                    <img src="firstCover.jpg" alt="image">
-                    <div class="description">
-                        <span>J.K Rowling</span>
-                        <h5>Harry Potter and the Philosopher's Stone</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>12$</h4>
-                    </div>
-                    <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="cover2.jpg" alt="image">
-                    <div class="description">
-                        <span>J.K Rowling</span>
-                        <h5>Harry Potter and the Prisoner of Azkaban</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>12$</h4>
-                    </div>
-                    <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="cover3.jpg" alt="image">
-                    <div class="description">
-                        <span>George R. Martin</span>
-                        <h5>Game of Thrones</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>24$</h4>
-                    </div>
-                    <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="cover4.jpg" alt="image">
-                    <div class="description">
-                        <span>George R. Martin</span>
-                        <h5>The Winds of Winter</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>24$</h4>
-                    </div>
-                    <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="firstCover.jpg" alt="image">
-                    <div class="description">
-                        <span>J.K Rowling</span>
-                        <h5>Harry Potter and the Philosopher's Stone</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>12$</h4>
-                    </div>
-                    <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="cover2.jpg" alt="image">
-                    <div class="description">
-                        <span>J.K Rowling</span>
-                        <h5>Harry Potter and the Prisoner of Azkaban</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>12$</h4>
-                    </div>
-                    <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="cover3.jpg" alt="image">
-                    <div class="description">
-                        <span>George R. Martin</span>
-                        <h5>Game of Thrones</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>24$</h4>
-                    </div>
-                    <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="cover4.jpg" alt="image">
-                    <div class="description">
-                        <span>George R. Martin</span>
-                        <h5>The Winds of Winter</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>24$</h4>
-                    </div>
-                    <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-                </div>
+           <?php }
+            
+            ?>
+            
+            
             </div>
     </section>
 
     <section id="pagination" class="section-p1">
         <a href="#">1</a>
-        <a href="#">2</a>
         <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
     </section>
 
