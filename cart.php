@@ -25,10 +25,7 @@
         <h2>#Cart</h2>
 
         <p>Add your coupon code & SAVE upto 70%!</p>
-        <div>
-            <button class="normal" id="hide" onclick="Hide()">Hide</button>
-            <button class="normal" id="show" onclick="Show()">Show</button>
-        </div>
+       
     </section>
     <section id="cart" class="section-p1">
         <table width="100%">
@@ -71,21 +68,7 @@
                     <input type="password" name="" id="pass" placeholder="Password">
 
                     <br>
-                    <div id="widthAuto">
-                        <label for="genM">Male</label>
-                        <input type="radio" name="gen" id="genM">
-                        <br>
-                        <label for="genF">Female</label>
-                        <input type="radio" name="gen" id="genF">
-                        <br>
-                        <br>
-                        <label for="range">Your Satisfaction With Our Services</label>
-                        <input type="range" min="1" max="100" value="50" class="slider" id="range">
-                        <br>
-                        <input type="checkbox" id="check">
-
-                        <label for="check">Be notified for our latest arrivals and our blogs</label>
-                    </div>
+                    
 
                     <br>
                     <button class="normal" type="submit"
@@ -112,8 +95,7 @@
                 </tr>
             </table>
             
-            <button class="normal" onclick="fadeNote()">Proceed to checkout</button>
-            <h2 id="thankNote">THANK YOU FOR YOUR PURCHASE</h2>
+            <button class="normal">Proceed to checkout</button>
         </div>
     </section>
 
