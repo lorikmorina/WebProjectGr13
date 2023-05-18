@@ -71,7 +71,16 @@ if($pageNr <= 1) {
         <h2>Shop from Home</h2>
 
         <p>Save more with coupons & up to 40% off!</p>
-        
+        <?php
+            if($_SESSION['access'] == 0){ 
+                echo 
+                '<div>'. 
+                    '<button class="normal" id="show" name="addproduct"><a href="AddRemoveProducts.php" style="text-decoration:none;color:black;">Add</a></button>'.
+                    '<button class="normal" id="show" name="removeproduct">Remove</button>'.
+                '</div>';
+            }
+           
+        ?>
         <h3 id="randomTitle"></h3>
 
 

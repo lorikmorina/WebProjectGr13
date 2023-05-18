@@ -29,10 +29,7 @@ $errorMsg = $_GET['error'];
    include("header.php");
    ?>
     <div class="login-form">
-        <form method="POST" action="signin.php">
-            <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
-            <h4 class="modal-title">Login to Your Account</h4>
-            <p style="color: red;"><?php echo $errorMsg; ?></p>
+        <form >
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Username" required="required" name="username">
             </div>
