@@ -13,27 +13,10 @@ $showParagraph = false;
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<section id="header">
-        <a href="index.php"><img src="logo2.png" alt="" width="150px" class="logo"></a>
-
-        <div>
-            <ul id="navbar">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="shop.php">Shop</a></li>
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
-                <a href="#" id="close"> <i class="fa fa-times"></i></a>
-				<li><a class="active" href="profile.php">Login</a></li>
-            </ul>
-        </div>
-        <div id="mobile">
-
-            <a href="shop.php"><i class="fa fa-shopping-bag"></i></a>
-            <i id="bar" class="fas fa-outdent"></i>
-        </div>
-    </section>
+<?php
+//    header here
+   include("header.php");
+   ?>
 	<form action="profile_edit.php" method="POST">
 	<section class="py-5 my-5" >
 		<div class="container">

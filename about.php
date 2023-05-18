@@ -17,36 +17,10 @@
 </head>
 
 <body>
-<section id="header">
-        <a href="index.php"><img src="logo2.png" alt="" width="150px" class="logo"></a>
-
-        <div>
-            <ul id="navbar">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="shop.php">Shop</a></li>
-                <li><a href="blog.php">Blog</a></li>
-                <li><a class="active" href="about.php">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
-                <a href="#" id="close"> <i class="fa fa-times"></i></a>
-                <li>
-                <?php if(isset($_SESSION['user'])) {
-                        ?><a href="profile.php"><i class="fa-solid fa-user" style="color:white"></i></a></li>
-                <?php
-                    }else {
-                        ?>
-                         <a href="signin.html">Login</a>
-                        <?php 
-                    }
-                ?>
-            </ul>
-        </div>
-        <div id="mobile">
-
-            <a href="shop.php"><i class="fa fa-shopping-bag"></i></a>
-            <i id="bar" class="fas fa-outdent"></i>
-        </div>
-    </section>
+<?php
+//    header here
+   include("header.php");
+   ?>
 
     <section id="page-header" class="blog-header">
 
@@ -94,21 +68,6 @@
 
 
 
-    </section>
-    <section id="about-app" class="section-p1">
-        <h1>Download our <a href="#">App</a></h1>
-        <div class="video">
-            <p>VIDEO</p>
-            <video autoplay muted loop src="video.mp4"></video>
-        </div>
-        <div class="audioFlex">
-            <audio controls>
-                <source src="audio.mp3" type="audio/ogg">
-            </audio>
-            <audio controls>
-                <source src="book.mp3" type="audio/ogg">
-            </audio>
-        </div>
     </section>
 
     <section id="feature" class="section-p1">

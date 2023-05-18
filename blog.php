@@ -13,36 +13,10 @@
 </head>
 
 <body>
-<section id="header">
-        <a href="index.php"><img src="logo2.png" alt="" width="150px" class="logo"></a>
-
-        <div>
-            <ul id="navbar">
-                <li><a  href="index.php">Home</a></li>
-                <li><a href="shop.php">Shop</a></li>
-                <li><a class="active" href="blog.php">Blog</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
-                <a href="#" id="close"> <i class="fa fa-times"></i></a>
-                <li>
-                <?php if(isset($_SESSION['user'])) {
-                        ?><a href="profile.phpl"><i class="fa-solid fa-user" style="color:white"></i></a></li>
-                <?php
-                    }else {
-                        ?>
-                        <a href="signin.html">Login</a>
-                        <?php 
-                    }
-                ?>
-            </ul>
-        </div>
-        <div id="mobile">
-
-            <a href="shop.php"><i class="fa fa-shopping-bag"></i></a>
-            <i id="bar" class="fas fa-outdent"></i>
-        </div>
-    </section>
+<?php
+//    header here
+   include("header.php");
+   ?>
     
 
     <section id="page-header" class="blog-header">
@@ -54,11 +28,6 @@
     </section>
 
     
-    <svg viewBox="0 0 200 100">
-        
-       <polygon points="0,100 50,25 50,75 100,0" fill="white"/>
-
-    </svg>
 
     <section id="blog">
         <div class="blog-box">
@@ -66,13 +35,12 @@
                 <img src="firstBanner.jpg" alt="image">
             </div>
             <article class="blog-details">
-                <button id="appendButton" onclick="appendText1()">Append text</button>
                 <h4>The Best New Selling Books</h4>
                 <p id="setText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Laudantium unde voluptatum ratione rem.
                     Voluptatem iste quod tempora iure fuga quisquam maxime labore
                     quam doloribus sunt non adipisci voluptas, ea itaque!</p>
-                <a onclick="setTextt(document.getElementById('setText'))" >CONTINUE READING</a>
+                <a href="#" >CONTINUE READING</a>
 
             </article>
         </div>
@@ -81,45 +49,15 @@
             <div class="blog-img">
                 <img src="firstBanner.jpg" alt="image">
             </div>
-            <div class="blog-details">
-                <h4>The Best New Selling Book</h4>
-                <p id="setText1">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            <article class="blog-details">
+                <h4>The Best New Selling Books</h4>
+                <p id="setText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Laudantium unde voluptatum ratione rem.
                     Voluptatem iste quod tempora iure fuga quisquam maxime labore
                     quam doloribus sunt non adipisci voluptas, ea itaque!</p>
-                <a onclick="setTextt(document.getElementById('setText1'))">CONTINUE READING</a>
+                <a href="#" >CONTINUE READING</a>
 
-            </div>
-        </div>
-
-        <div class="blog-box">
-            <div class="blog-img">
-                <img src="firstBanner.jpg" alt="image">
-            </div>
-            <div class="blog-details">
-                <h4>The Best New Selling Book</h4>
-                <p id="setText2">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laudantium unde voluptatum ratione rem.
-                    Voluptatem iste quod tempora iure fuga quisquam maxime labore
-                    quam doloribus sunt non adipisci voluptas, ea itaque!</p>
-                <a onclick="setTextt(document.getElementById('setText2'))">CONTINUE READING</a>
-
-            </div>
-        </div>
-
-        <div class="blog-box">
-            <div class="blog-img">
-                <img src="firstBanner.jpg" alt="image">
-            </div>
-            <div class="blog-details">
-                <h4>The Best New Selling Book</h4>
-                <p id="setText3">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laudantium unde voluptatum ratione rem.
-                    Voluptatem iste quod tempora iure fuga quisquam maxime labore
-                    quam doloribus sunt non adipisci voluptas, ea itaque!</p>
-                <a onclick="setTextt(document.getElementById('setText3'))">CONTINUE READING</a>
-
-            </div>
+            </article>
         </div>
 
         <div class="blog-box">
@@ -127,12 +65,42 @@
                 <img src="firstBanner.jpg" alt="image">
             </div>
             <article class="blog-details">
-                <h4>The Best New Selling Book</h4>
-                <p id="setText4">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                <h4>The Best New Selling Books</h4>
+                <p id="setText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Laudantium unde voluptatum ratione rem.
                     Voluptatem iste quod tempora iure fuga quisquam maxime labore
                     quam doloribus sunt non adipisci voluptas, ea itaque!</p>
-                <a onclick="setTextt(document.getElementById('setText4'))">CONTINUE READING</a>
+                <a href="#" >CONTINUE READING</a>
+
+            </article>
+        </div>
+
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="firstBanner.jpg" alt="image">
+            </div>
+            <article class="blog-details">
+                <h4>The Best New Selling Books</h4>
+                <p id="setText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Laudantium unde voluptatum ratione rem.
+                    Voluptatem iste quod tempora iure fuga quisquam maxime labore
+                    quam doloribus sunt non adipisci voluptas, ea itaque!</p>
+                <a href="#" >CONTINUE READING</a>
+
+            </article>
+        </div>
+
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="firstBanner.jpg" alt="image">
+            </div>
+            <article class="blog-details">
+                <h4>The Best New Selling Books</h4>
+                <p id="setText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Laudantium unde voluptatum ratione rem.
+                    Voluptatem iste quod tempora iure fuga quisquam maxime labore
+                    quam doloribus sunt non adipisci voluptas, ea itaque!</p>
+                <a href="#" >CONTINUE READING</a>
 
             </article>
         </div>
@@ -208,37 +176,12 @@
             <p>&copy; 2023, ProRead, Best Local Online Book Store</p>
         </div>
     </footer>
-    <section id="bannerMul" class="section-m1">
-        <h4>Borrow Books</h4>
-        <h2>Get the <span>Best Offers</span>- To Borrow all kinds of books</h2>
-        <button class="normal">Explore More</button>
 
-    </section>
 
 
     <script src="script.js"></script>
 
 
-
-    <div class="floatAttr">
-        <h1>Image float</h1>
-        <div>
-            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20190808143838/logsm.png">
-        </div>
-        <br>
-        <br>
-        <br>
-        <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur voluptatibus voluptatum dolorum animi
-            dicta ipsa quibusdam in voluptates quas cupiditate, cumque non officiis ullam? Veniam corporis aliquam ipsa
-            quos est.
-        </p>
-
-
-        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20190808143838/logsm.png">
     </div>
-
-    </div>
-    <button id="animateButton" onclick="animate1()"></button>
 </body>
 </html>

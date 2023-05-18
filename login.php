@@ -24,26 +24,10 @@ $errorMsg = $_GET['error'];
 </head>
 
 <body>
-    <section id="header">
-        <a href="index.php"><img src="logo2.png" alt="" width="150px" class="logo"></a>
-
-        <div>
-            <ul id="navbar">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="shop.php">Shop</a></li>
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
-                <a href="#" id="close"> <i class="fa fa-times"></i></a>
-            </ul>
-        </div>
-        <div id="mobile">
-
-            <a href="shop.php"><i class="fa fa-shopping-bag"></i></a>
-            <i id="bar" class="fas fa-outdent"></i>
-        </div>
-    </section>
+<?php
+//    header here
+   include("header.php");
+   ?>
     <div class="login-form">
         <form method="POST" action="signin.php">
             <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
