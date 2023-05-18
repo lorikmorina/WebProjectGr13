@@ -76,7 +76,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <!-- iterate through list and display a div for each -->
             <?php 
             foreach ($products as $product) {?>
-
+         <a href="sproduct.php?proId=<?php echo $product['id'] ?>">
             <div class="pro">
                 <img src="<?php echo $product['image']; ?>" alt="image">
                 <div class="description">
@@ -96,7 +96,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
             </div>
-
+        </a>
            <?php }
             
             ?>

@@ -1,4 +1,17 @@
-<?php session_start();
+<?php
+ session_start();
+require_once('dbConfig.php');
+ $productId =1;
+$productId = $_GET['proId'];
+
+$query = "SELECT * FROM products WHERE id = '$productId' LIMIT 1";
+// Prepare and execute the query
+$stmt = $conn->prepare($query);
+$stmt->execute();
+
+// Fetch all the rows as associative array
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,89 +21,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/49b85c6328.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
     <title>ProDetails</title>
 </head>
 
 <body>
-    
-<section id="header">
-        <a href="index.php"><img src="logo2.png" alt="" width="150px" class="logo"></a>
+<?php
+//    header here
+   include("header.php");
 
-        <div>
-            <ul id="navbar">
-                <li><a href="index.php">Home</a></li>
-                <li><a  class="active" href="shop.php">Shop</a></li>
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
-                <a href="#" id="close"> <i class="fa fa-times"></i></a>
-                <li>
-                <?php if(isset($_SESSION['user'])) {
-                        ?><a href="profile.php"><i class="fa-solid fa-user" style="color:white"></i></a></li>
-                <?php
-                    }else {
-                        ?>
-                         <a href="signin.html">Login</a>
-                        <?php 
-                    }
-                ?>
-            </ul>
-        </div>
-        <div id="mobile">
-
-            <a href="shop.php"><i class="fa fa-shopping-bag"></i></a>
-            <i id="bar" class="fas fa-outdent"></i>
-        </div>
-    </section>
+   if (count($products) > 0) {
+   ?>
 
     <section id="prodetails" class="section-p1">
         <div class="single-pro-image">
-            <a href="cover4.jpg"><img src="cover4.jpg" width=100% id="MainImg" alt="image"></a>
-
-            <div class="small-img-group">
-                <div class="small-img-col">
-                    <img src="cover4.jpg" width="100%" class="smallimg" alt="image">
-                </div>
-                <div class="small-img-col">
-                    <img src="cover3.jpg" width="100%" class="smallimg" alt="image">
-                </div>
-                <div class="small-img-col">
-                    <img src="cover2.jpg" width="100%" class="smallimg" alt="image">
-                </div>
-                <div class="small-img-col">
-                    <img src="cover4.jpg" width="100%" class="smallimg" alt="image">
-                </div>
-
-            </div>
-            <div id="upDown">
-
-                <button class="bUp">Slide up</button>
-                <button class="bDown">Slide down</button>
-                
-            </div>
-        </div>
+            <a href="#"><img src="<?php echo $products[0]['image']; ?>" width=100% id="MainImg" alt="image"></a>
             
+        </div>
+        
 
         <div class="single-pro-details">
             <h6>Home/Books</h6>
-            <h4>Newest Books</h4>
-            <h2 id="price">$12.00</h2>
+            <h4><?php echo $products[0]['title']; ?></h4>
+            <div class="star" style="color: gold;">
+                        <!-- full stars -->
+                    <?php for ($i = 0; $i < $products[0]['rating']; $i++) {?>
+                        <i class="fas fa-star"></i>
+                         <?php   }?>
+                            <!-- empty stars -->
+                         <?php for ($i = 0; $i < 5 - $products[0]['rating']; $i++) {?>
+                        <i class="far fa-star"></i>
+                         <?php   }?>
+        </div>
+            <h2 id="price"><?php echo $products[0]['price']; ?>€</h2>
 
             <form action="cart.php" method="POST" autocomplete="off">
                 <label>Quantity: </label>
                 <input type="number" id="quantity" name="quantity" onchange="totalPrice(document.getElementById('quantity').value)"
                     value="1" min="1">
-                <label for="select">Type: </label>
-                <select id="select">
-                    <option value="type" disabled selected>Type</option>
-                    <option value="Audiobook">Audiobook</option>
-                    <option value="PDF">PDF</option>
-                    <option value="Hardcover">Hardcover</option>
-
-                </select>
+               
                 <button class="normal" name="addtocart" onclick="checkStock(document.getElementById('quantity').value)">Add to
                     Cart</button>
             </form>
@@ -99,9 +68,12 @@
 
 
             <h4>Product Details</h4>
-            <span id="bookDes">Deafault Description</span>
+            <span id="bookDes"><?php echo $products[0]['description']; ?></span>
         </div>
     </section>
+    <?php } else {
+    echo "This product doesn't exist";
+} ?>
 
     <section id="products" class="section-p1">
         <h2>Featured Products</h2>
@@ -255,7 +227,8 @@
     </script>
 
     <script src="script.js"></script>
-
+    <script src="https://kit.fontawesome.com/49b85c6328.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 
 </html>
