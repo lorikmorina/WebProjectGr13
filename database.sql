@@ -10,4 +10,13 @@ create table users(
 	salted_hash nvarchar(256) not null,
     primary key(id)
 );
+
+create table admins(
+	id int auto_increment not Null,
+    fullname nvarchar(50) not null,
+    email  nvarchar(50) not null,
+    username  nvarchar(30) not null,
+	salted_hash nvarchar(256) not null,
+    primary key(id)
+);
 select * from users;
