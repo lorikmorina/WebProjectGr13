@@ -1,3 +1,5 @@
+alert("test");
+
 const bar = document.getElementById('bar');
 const close = document.getElementById('close');
 const nav = document.getElementById('navbar');
@@ -35,9 +37,6 @@ function callback1(callback) {
   const name = document.getElementById('nameForm').value;
   callback(name)
 }
-
-
-////
 
 
 
@@ -224,14 +223,8 @@ function getUrla(){
     alert($("#geturl1").attr("href"));
   });
 }
-function setTextt(textId){
-  $(textId).text("OMG YOU FOUND ME");
-  $('#appendButton').fadeIn(50);
-}
+
 
 function removeProduct(product){
     product.remove();
-}
-function appendText1(){
-  $('#setText').append(' .OMG YOU FOUND ME. ');
 }

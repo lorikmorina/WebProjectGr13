@@ -3,7 +3,24 @@
 session_start();
 
 require_once("dbConfig.php");
-$offset = $_GET['page'] * 12;
+
+$pageNr = 1;
+if(isset($_GET['pageNr'])) {
+   $pageNr = intval($_GET['pageNr']);
+}
+$offset = 12* $pageNr - 12;
+// Get image data from database
+// if($type == NULL) {
+//    $result = $db->query("SELECT * FROM allProducts WHERE title LIKE '%{$search}%' ORDER BY id DESC LIMIT 9 OFFSET $offset");
+//    $setPath = "searchBar=". $search;
+// } else {
+   
+//       $setPath = "type=$type";
+//       $result = $db->query("SELECT * FROM allProducts WHERE category = '$type' ORDER BY id DESC LIMIT 9 OFFSET $offset"); 
+   
+   
+
+// }
 $query = "SELECT * FROM products LIMIT 12 OFFSET $offset";
 // Prepare and execute the query
 $stmt = $conn->prepare($query);
@@ -11,6 +28,20 @@ $stmt->execute();
 
 // Fetch all the rows as associative array
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$disableNext = 'style="display: show;"';
+$disablePrev = 'style="display: show;"';
+if(count($products) < 12){
+   
+   $disableNext = 'style="display: none;"';
+}
+if($pageNr <= 1) {
+   $disablePrev = 'style="display: none;"';
+}
+
+
+
+
     
 
 
@@ -82,8 +113,9 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </section>
 
     <section id="pagination" class="section-p1">
-        <a href="#">1</a>
-        <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+        <a  <?php echo $disablePrev;?> href="shop.php?<?php $prev = $pageNr - 1;  echo "&pageNr=$prev"; ?>" >Pas</a>
+        <a><?php echo $pageNr; ?></a>
+        <a <?php echo $disableNext; ?> href="shop.php?<?php $next = $pageNr +1; echo "&pageNr=$next"; ?>">Para</a>
     </section>
 
     <abbr id="newsletter" class="section-p1 section-m1">

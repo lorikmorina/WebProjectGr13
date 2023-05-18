@@ -3,12 +3,12 @@
 
         <div>
             <ul id="navbar">
-                <li><a class="active" href="index.php">Home</a></li>
-                <li><a href="shop.php">Shop</a></li>
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
+                <li><a  href="index.php" id="homeNav">Home</a></li>
+                <li><a href="shop.php" id="shopNav">Shop</a></li>
+                <li><a href="blog.php" id="blogNav">Blog</a></li>
+                <li><a href="about.php" id="aboutNav">About</a></li>
+                <li><a href="contact.php" id="contactNav">Contact</a></li>
+                <li id="lg-bag"><a href="cart.php" id="bagNav"><i class="fa fa-shopping-bag"></i></a></li>
                 <a href="#" id="close"> <i class="fa fa-times"></i></a>
                 <li>
                 <?php if(isset($_SESSION['user'])) {
@@ -16,7 +16,7 @@
                 <?php
                     }else {
                         ?>
-                         <a href="login.php">Login</a>
+                         <a href="login.php" id="loginNav">Login</a>
                         <?php 
                     }
                 ?>
