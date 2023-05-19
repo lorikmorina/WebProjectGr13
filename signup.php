@@ -18,6 +18,5 @@
 
     $stmt->execute();
 
-    echo "User inserted successfully";
-    
+header("Location: login.php");    
 ?>

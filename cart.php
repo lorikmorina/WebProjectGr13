@@ -14,7 +14,7 @@ $stmt->execute();
 
 // Fetch all rows as an associative array
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+$cartSubTotal = 0;
 
 ?>
 <!DOCTYPE html>
@@ -60,8 +60,10 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
                 <?php
                     // Display the product information
-                    foreach ($rows as $row) {?>
-                        
+                    foreach ($rows as $row) {
+                        $cartSubTotal += intval($row['price']) * intval($row['quantity']);
+
+                        ?>
 
                         <tr>
             
@@ -111,7 +113,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <table>
                 <tr>
                     <td>Cart Subtotal</td>
-                    <td>$ 335</td>
+                    <td><?php echo $cartSubTotal; ?>€</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
@@ -119,7 +121,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong>$ 335</strong></td>
+                    <td><strong><?php echo $cartSubTotal; ?>€</strong></td>
                 </tr>
             </table>
             
