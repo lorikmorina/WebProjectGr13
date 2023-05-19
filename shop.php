@@ -76,7 +76,7 @@ if($pageNr <= 1) {
                 echo 
                 '<div>'. 
                     '<button class="normal" id="show" name="addproduct"><a href="AddRemoveProducts.php" style="text-decoration:none;color:black;">Add</a></button>'.
-                    '<button class="normal" id="show" name="removeproduct">Remove</button>'.
+                    '<button class="normal" id="show" name="manageProduct"><a href="manageProducts.php" style="text-decoration:none;color:black;">Manage</a></button>'.
                 '</div>';
             }
            
