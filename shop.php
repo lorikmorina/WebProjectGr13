@@ -110,7 +110,7 @@ if($pageNr <= 1) {
                     </div>
                     <h4><?php echo $product['price']; ?>€</h4>
                 </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+                <a href="addtocart.php?productId=<?php echo $product['id']; ?>"><i class="fas fa-shopping-cart cart"></i></a>
             </div>
          </a>
            <?php }

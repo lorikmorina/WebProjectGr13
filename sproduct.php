@@ -55,12 +55,12 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
             <h2 id="price"><?php echo $products[0]['price']; ?>€</h2>
 
-            <form action="cart.php" method="POST" autocomplete="off">
+            <form action="addtocart.php" method="GET" >
                 <label>Quantity: </label>
                 <input type="number" id="quantity" name="quantity" onchange="totalPrice(document.getElementById('quantity').value)"
                     value="1" min="1">
-               
-                <button class="normal" name="addtocart" onclick="checkStock(document.getElementById('quantity').value)">Add to
+                    <input type="hidden" name="productId" value="<?php echo $products[0]['id']; ?>">
+              <button type="submit" class="normal" >Add to
                     Cart</button>
             </form>
 

@@ -1,4 +1,22 @@
-<?php session_start();?>
+<?php session_start();
+require_once('dbConfig.php');
+$userId = $_SESSION['id'];
+
+// SQL query to fetch products from the user's cart
+$sql = "SELECT products.title, products.image, products.price, carts.quantity
+        FROM carts
+        JOIN products ON carts.product_id = products.id
+        WHERE carts.user_id = :user_id";
+
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':user_id', $userId);
+$stmt->execute();
+
+// Fetch all rows as an associative array
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,12 +59,22 @@
             </thead>
             <tbody>
                 <?php
-                    include('addtocart.php');
-                    if (isset($_SESSION['cart'])) {
-                        foreach ($_SESSION['cart'] as $row) {
-                            echo $row;
-                        }
-                    }
+                    // Display the product information
+                    foreach ($rows as $row) {?>
+                        
+
+                        <tr>
+            
+                    <td><a><i class="far fa-times-circle"></i></a></td>
+                    <td><img src="<?php echo $row['image']; ?>"
+                            alt=""></td>
+                    <td><?php echo $row['title']; ?></td>
+                    <td><?php echo $row['price']; ?>€</td>
+                    <td><input type="number" value="<?php echo $row['quantity']; ?>"></td>
+                    <td><?php echo intval($row['price']) * intval($row['quantity']); ?>€</td>
+                </tr>
+
+                 <?php   }
                 ?>
             </tbody>
         </table>
