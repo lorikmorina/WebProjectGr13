@@ -20,3 +20,13 @@ create table admins(
     primary key(id)
 );
 select * from users;
+
+CREATE TABLE carts (
+  id INT auto_increment NOT NULL,
+  user_id INT NOT NULL,
+  product_id INT NOT NULL,
+  quantity INT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+  FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE
+);
