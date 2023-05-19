@@ -59,7 +59,7 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block btn-lg" value="Signup">
         </form>
-        <div class="text-center small" id="noAcc">Don't have an account? <a href="login.php">Sign up</a></div>
+        <div class="text-center small" id="noAcc">Already have an account? <a href="login.php">Sign in</a></div>
     </div>
 </body>
 

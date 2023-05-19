@@ -63,6 +63,19 @@
         position:relative;
         
     }
+    .radio label {
+        position: absolute;
+        top:50%;
+        left:40px;
+    }
+    .radio input:focus + label,
+    .radio input:valid + label{
+        top:50%;
+        
+    }
+    .radio input {
+        width: 50%;
+    }
     .btn input{
         width:150px;
         height:50px;
@@ -94,9 +107,20 @@
         color:white;
         font-size:20px;
     }
+    output {
+        font-family:poppins;
+        position: absolute;
+        right: 15px;
+        top: 0;
+        color: white;
+    }
+    .wrapper .range {
+        width:80%;
+        float: right;
+    }
 </style>
 <body>
-    <form action="controllProducts.php" method="POST">
+    <form action="controllProducts.php" method="post" enctype="multipart/form-data">
         <div class="wrapper">
             <input type="passowrd" name="title" required>
             <label for="">Title</label>
@@ -116,19 +140,30 @@
         </div>
         <div class="image">
             <label for="">Image</label>
-            <input type="file" accept="image/*" name="image">
+            <input type="file" name="image" require>
+        </div>
+        
+         <div class="wrapper radio">
+               <input type="radio" name="category" id="featured" value="featured" require>
+               <label for="featured">Featured:</label>
+        </div>
+
+        <div class="wrapper radio">
+
+               <input type="radio" name="category" id="newArrival" value="newArrival" require>
+               <label for="newArrival">New Arrival:</label> <br>
+               <br>
         </div>
         <div class="wrapper">
-            <input type="text" name="category" required>
-            <label for="">Category</label>
-        </div>
-        <div class="wrapper">
-            <input type="number"  name="rating" required>
-            <label for="">Rating</label>
+        <label for="">Rating</label>
+
+        <input class="range" name="rating" type="range" value="5" min="1" max="5" oninput="this.nextElementSibling.value = this.value">
+        <output>5</output>
+
         </div>
         <div class="btn">
             <input type="submit" name="submit">
-            <input type="button" value="Cancle" name="cancle">
+            <input type="button" value="Cancel" name="cancel">
         </div>
     </form>
     

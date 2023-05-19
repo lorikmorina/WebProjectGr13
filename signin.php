@@ -30,7 +30,7 @@ try {
             $_SESSION['email'] = $email;
             header("location: index.php");
         } else {
-            header("location: login.php?error=Password is incorrect!  HYSEN $hashedPassword");
+            header("location: login.php?error=Password is incorrect!");
         }
     }else if($admins){
         $_SESSION['access'] = 0;
@@ -43,7 +43,7 @@ try {
             $_SESSION['email'] = $email;
             header("location: index.php");
         } else {
-            header("location: login.php?error=Password is incorrect!  HYSEN $hashedPassword");
+            header("location: login.php?error=Password is incorrect!");
         }
     }else {
         header("location: login.php?error=User not found!");
