@@ -3,7 +3,7 @@ require_once('dbConfig.php');
 $userId = $_SESSION['id'];
 
 // SQL query to fetch products from the user's cart
-$sql = "SELECT products.title, products.image, products.price, carts.quantity
+$sql = "SELECT products.title, products.image, products.price,carts.id, carts.quantity
         FROM carts
         JOIN products ON carts.product_id = products.id
         WHERE carts.user_id = :user_id";
@@ -65,7 +65,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                         <tr>
             
-                    <td><a><i class="far fa-times-circle"></i></a></td>
+                    <td><a href="removeFromCart.php?cartProductId=<?php echo $row['id']; ?>"><i class="far fa-times-circle"></i></a></td>
                     <td><img src="<?php echo $row['image']; ?>"
                             alt=""></td>
                     <td><?php echo $row['title']; ?></td>
