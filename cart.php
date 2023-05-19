@@ -87,22 +87,21 @@ $cartSubTotal = 0;
             <h3>Apply Coupon</h3>
             <div id="forms">
                 <form action="#" autocomplete="on">
-                    <input types="text" placeholder="Enter Your Coupon" pattern="[A-Za-z]{5}">
+                    <input types="text" placeholder="Enter Your Coupon(Optional)" pattern="[A-Za-z]{5}">
                     <button class="normal">Apply</button>
-                    <input type="text" placeholder="Name" pattern="[A-Za-z]{20}" id="firstName">
-                    <input type="text" placeholder="Last Name" pattern="[A-Za-z]{25}" id="lastName">
+                    <input type="text" placeholder="Full Name"  id="name">
+
+                    <input type="text" placeholder="Address Line"  id="address">
+                    <input type="text" placeholder="City"  id="city">
                     <br>
-                    <input type="email" placeholder="Email" id="firstEmail">
+                    <input type="text" placeholder="Postal Code"  id="postcode">
+                    <br>
+                    <input type="text" placeholder="Country"  id="country">
+                    <br>
+                    <input type="text" placeholder="Phone Number" pattern="[0-9]{3} [0-9]{3} [0-9]{3}"  id="phone">
                     <br>
 
-                    <input type="password" name="" id="pass" placeholder="Password">
-
                     <br>
-                    
-
-                    <br>
-                    <button class="normal" type="submit"
-                        onclick="checkEmpty(document.getElementById('firstName'),document.getElementById('firstEmail'),document.getElementById('lastName'))">Submit</button>
                 </form>
 
             </div>
