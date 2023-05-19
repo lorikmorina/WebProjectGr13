@@ -21,21 +21,25 @@ create table admins(
 );
 select * from users;
 
--- CREATE TABLE carts (
---   id INT auto_increment NOT NULL,
---   user_id INT NOT NULL,
---   product_id INT NOT NULL,
---   quantity INT NOT NULL,
---   PRIMARY KEY (id),
---   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
---   FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE
--- );
-
 CREATE TABLE carts (
+  id INT auto_increment NOT NULL,
   user_id INT NOT NULL,
   product_id INT NOT NULL,
   quantity INT NOT NULL,
-  PRIMARY KEY (user_id),
+  PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
   FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE
+);
+
+create table userAddress (
+    id int AUTO_INCREMENT not null,
+    user_id int not null,
+    fullName varchar(50) not null,
+    addresLine varchar(100) not null,
+    city varchar(50) not null,
+    postalCode int(7) not null,
+    country varchar(20) not null,
+    phoneNumber int(50) not null,
+    primary key(id),
+    FOREIGN KEY(user_id) REFERENCES users (id) on DELETE CASCADE
 );
