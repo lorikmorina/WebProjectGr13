@@ -3,11 +3,11 @@ use php2023;
 
 create table users(
 	id int auto_increment not Null,
-    username nvarchar(50) not null,
-    email  nvarchar(50) not null,
-    fullname  nvarchar(30) not null,
-    salt  nvarchar(256) not null,
-	salted_hash nvarchar(256) not null,
+    username varchar(50) not null,
+    email  varchar(50) not null,
+    fullname  varchar(30) not null,
+    salt  varchar(256) not null,
+	salted_hash varchar(256) not null,
     primary key(id)
 );
 
@@ -20,6 +20,18 @@ create table admins(
     primary key(id)
 );
 select * from users;
+
+CREATE table products(
+    id int auto_increment not Null,
+    title varchar(50) not null,
+    author  varchar(50) not null,
+    description  varchar(300) not null,
+	price int not null,
+	image varchar(50) not null,
+	category varchar(20) not null,
+	rating int not null,
+    primary key(id)
+);
 
 CREATE TABLE carts (
   id INT auto_increment NOT NULL,
