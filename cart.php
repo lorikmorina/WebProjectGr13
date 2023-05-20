@@ -37,13 +37,14 @@ if(isset($_SESSION['coupon_code' . $userId])) {
         $stmt->execute();
 
         $userAddress = $stmt->fetch(PDO::FETCH_ASSOC); 
-
-        $fullName = $userAddress['fullName'];
-        $address = $userAddress['addresLine'];x
-        $city = $userAddress['city'];
-        $postalCode = $userAddress['postalCode'];
-        $country = $userAddress['country'];
-        $phoneNumber = $userAddress['phoneNumber'];
+        if ($userAddress) {
+            $fullName = $userAddress['fullName'];
+            $address = $userAddress['addresLine'];
+            $city = $userAddress['city'];
+            $postalCode = $userAddress['postalCode'];
+            $country = $userAddress['country'];
+            $phoneNumber = $userAddress['phoneNumber'];
+        }
     }
 ?>
 <!DOCTYPE html>
