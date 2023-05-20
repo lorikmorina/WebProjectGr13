@@ -51,3 +51,17 @@ create table useraddress (
     primary key(id),
     FOREIGN KEY(user_id) REFERENCES users (id) on DELETE CASCADE
 );
+create table questions (
+    id int AUTO_INCREMENT not null,
+    user_id int not null,
+    question varchar(50) not null,
+    primary key(id),
+    FOREIGN KEY(user_id) REFERENCES users (id) on DELETE CASCADE
+);
+create table answers (
+    id int AUTO_INCREMENT not null,
+    question_id int not null,
+    answer varchar(300) not null,
+    primary key(id),
+    FOREIGN KEY(question_id) REFERENCES questions (id) on DELETE CASCADE
+);
