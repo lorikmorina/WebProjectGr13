@@ -15,7 +15,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>About</title>
 </head>
-
 <body>
 <?php
 //    header here
@@ -29,6 +28,7 @@
         <p>BEST SELLERS</p>
 
     </section>
+    
     <section id="about-head" class="section-p1">
         <video autoplay muted loop src="WhoWeAre.mp4"></video>
 
@@ -42,6 +42,7 @@
                 inventore aut adipisci sunt.
             </p>
             <div>
+        
                 <ol>
                     <li>Quality Books</li>
                     <li>Low Prices</li>
@@ -69,7 +70,23 @@
 
 
     </section>
+    <section>
 
+    <section>
+    <a href="askquestion.php" style="text-decoration:none; color:white;">
+        <button style="
+        width:250px;
+        text-decoration:none;
+        height:50px;font-size:20px;
+        white-space:normal;
+        margin-left:50px;
+        border:none;
+        background:rgb(36,42,47);
+        color:white;
+        ">Ask a Question</button></a>
+    </section>
+
+    </section>
     <section id="feature" class="section-p1">
         <div class="feature-box">
             <img src="feature1.jpg" alt="image">

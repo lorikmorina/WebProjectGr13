@@ -1,6 +1,6 @@
 <?php
     require_once('dbConfig.php');
-   session_start();
+    session_start();
      // Set the values of the parameters
      $username = $_POST["username"];
      $password = $_POST["password"]; 
