@@ -44,6 +44,14 @@ if(isset($_SESSION['coupon_code' . $userId])) {
             $postalCode = $userAddress['postalCode'];
             $country = $userAddress['country'];
             $phoneNumber = $userAddress['phoneNumber'];
+        }else {
+   
+            $fullName = '';
+            $address = '';
+            $city = '';
+            $postalCode = '';
+            $country = '';
+            $phoneNumber = '';
         }
     }
 ?>
