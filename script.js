@@ -144,19 +144,6 @@ $("#select").on('change', function () {
   }
 });
 
-////loop
-function totalPrice(quantity) {
-  var initialPrice = 12.00; // Initial price of the product
-  var totalPrice = 0; // Variable to store the total price
-
-  for (var i = 1; i <= quantity; i++) {
-    totalPrice += initialPrice;
-  }
-
-  document.getElementById("price").innerHTML = '$' + totalPrice.toFixed(2);
-}
-
-
 
 ////constructor object at contact
 function Book(product, price) {

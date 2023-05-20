@@ -56,8 +56,27 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <h2 id="price"><?php echo $products[0]['price']; ?>€</h2>
 
                 <label>Quantity: </label>
-                <input type="number" id="quantity" name="quantity" onchange="totalPrice(document.getElementById('quantity').value)"
+                <input type="number" id="quantity" name="quantity" onchange="updateQuantity(this.value, <?php echo $products[0]['price']; ?>)"
                     value="1" min="1">
+                    <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+  var priceElement = document.getElementById("price");
+  var quantityInput = document.getElementById("quantity");
+  var originalPrice = <?php echo $products[0]['price']; ?>;
+
+  quantityInput.addEventListener("input", updatePrice);
+
+  function updatePrice() {
+    var quantity = parseInt(quantityInput.value);
+
+    var totalPrice = quantity * originalPrice;
+    priceElement.innerText = totalPrice.toFixed(2) + "€";
+  }
+
+  // Call updatePrice initially
+  updatePrice();
+});
+</script>
                     <button class="normal" onclick="addToCart(<?php echo $products[0]['id']; ?>, document.getElementById('quantity').value)" >Add to Cart</i></button>
 
 
