@@ -36,9 +36,10 @@ CREATE TABLE coupons (
   code VARCHAR(50) NOT NULL,
   discount DECIMAL(5,2) NOT NULL,
   active TINYINT(1) DEFAULT 1,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
-  
-create table userAddress (
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  );
+
+create table useraddress (
     id int AUTO_INCREMENT not null,
     user_id int not null,
     fullName varchar(50) not null,

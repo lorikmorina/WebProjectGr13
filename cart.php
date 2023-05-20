@@ -26,7 +26,25 @@ if(isset($_SESSION['coupon_code' . $userId])) {
     $hiddenCoupon = "display:show;";
     $cartTotal = 0;
 }
+    #
+    #Check if the user has already Purchased something
+    if (isset($_SESSION['id'])) {
 
+        $userId = $_SESSION['id'];
+        $sql = "SELECT * FROM useraddress WHERE user_id = :user_id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':user_id', $userId);
+        $stmt->execute();
+
+        $userAddress = $stmt->fetch(PDO::FETCH_ASSOC); 
+
+        $fullName = $userAddress['fullName'];
+        $address = $userAddress['addresLine'];x
+        $city = $userAddress['city'];
+        $postalCode = $userAddress['postalCode'];
+        $country = $userAddress['country'];
+        $phoneNumber = $userAddress['phoneNumber'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,21 +125,23 @@ if(isset($_SESSION['coupon_code' . $userId])) {
                     <button class="normal" id="applyCouponButton">Apply</button>
                     </div>
             <div id="forms">
-                <form action="#" autocomplete="on">
+    
+                <form action="manageAddress.php" method="POST">
                    
-                    <input type="text" placeholder="Full Name"  id="name">
+                    <input type="text" placeholder="Full Name"  id="name" name="Name" value="<?php echo $fullName?>">
 
-                    <input type="text" placeholder="Address Line"  id="address">
-                    <input type="text" placeholder="City"  id="city">
+                    <input type="text" placeholder="Address Line"  id="address" name="Address" value="<?php echo $address?>">
+                    <input type="text" placeholder="City"  id="city" name="City" value="<?php echo $city?>">
                     <br>
-                    <input type="text" placeholder="Postal Code"  id="postcode">
+                    <input type="text" placeholder="Postal Code"  id="postcode" name="Postcode" value="<?php echo $postalCode?>">
                     <br>
-                    <input type="text" placeholder="Country"  id="country">
+                    <input type="text" placeholder="Country"  id="country" name="Country" value="<?php echo $country?>">
                     <br>
-                    <input type="text" placeholder="Phone Number" pattern="[0-9]{3} [0-9]{3} [0-9]{3}"  id="phone">
+                    <input type="text" placeholder="Phone Number"  id="phone" name="PhoneNr" value="<?php echo $phoneNumber?>">
                     <br>
 
                     <br>
+                    <button class="normal" name="proceed">Proceed to checkout</button>
                 </form>
 
             </div>
@@ -146,9 +166,7 @@ if(isset($_SESSION['coupon_code' . $userId])) {
                     <td><strong>Total</strong></td>
                     <td><strong id="totalPrice"><?php echo $cartTotal; ?>€</strong></td>
                 </tr>
-            </table>
-            
-            <button class="normal">Proceed to checkout</button>
+            </table>     
         </div>
     </section>
 

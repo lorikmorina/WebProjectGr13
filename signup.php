@@ -1,5 +1,6 @@
 <?php
     require_once('dbConfig.php');
+
    
      // Set the values of the parameters
      $fullname = $_POST["Fullname"];
