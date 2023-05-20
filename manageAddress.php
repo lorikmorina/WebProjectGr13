@@ -1,12 +1,6 @@
 <?php
 require_once("dbConfig.php");
 session_start();
-
-
-
-
-    
-
     if (isset($_POST['proceed'])) {
         $userId = $_SESSION['id'];
         $name =$_POST['Name'];

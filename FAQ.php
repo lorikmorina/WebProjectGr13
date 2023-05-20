@@ -3,10 +3,10 @@
   session_start();
   $value = 0;
   $sql = "SELECT id, question, COUNT(*) as frequency
-          FROM questions
-          GROUP BY id, question
-          ORDER BY frequency DESC
-          LIMIT 3";
+  FROM questions
+  GROUP BY LOWER(question)
+  ORDER BY frequency DESC
+  LIMIT 3;";
   
   $users = $conn->prepare($sql);
   $users->execute();
