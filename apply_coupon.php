@@ -2,6 +2,7 @@
 // var_dump($_POST);
 session_start();
 require_once('dbConfig.php');
+$userId = $_SESSION['id'];
 
 
 // Retrieve the coupon code from the AJAX request
@@ -22,8 +23,9 @@ if ($stmt->rowCount() > 0) {
   $totalPrice = $_POST['total_price'];
   $discountedPrice = $totalPrice - ($totalPrice * ($discount / 100));
 
-  $_SESSION['coupon_code'] = $coupon['code'];
-  $_SESSION['cart_subtotal'] = $discountedPrice;
+  $_SESSION['coupon_code' . $userId] = $coupon['code'];
+  $_SESSION['cart_subtotal' . $userId] = $discountedPrice;
+  $_SESSION['cart_discount' . $userId] = $discount;
   // Return the discounted price as a JSON response
   echo json_encode(['discounted_price' => $discountedPrice]);
 

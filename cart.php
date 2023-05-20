@@ -15,12 +15,12 @@ $stmt->execute();
 // Fetch all rows as an associative array
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $cartSubTotal = 0;
-if(isset($_SESSION['coupon_code'])) {
-    $appliedCoupon =  $_SESSION['coupon_code'];
-    // unset( $_SESSION['coupon_code']);
+if(isset($_SESSION['coupon_code' . $userId])) {
+    $appliedCoupon =  $_SESSION['coupon_code' . $userId];
+    // unset( $_SESSION['coupon_code'  . $userId]);
     $appliedCouponStyle = "display: show;";
     $hiddenCoupon = "display:none;";
-    $cartTotal = $_SESSION['cart_subtotal'];
+    $cartTotal = $_SESSION['cart_subtotal' . $userId];
 } else {
     $appliedCouponStyle = "display: none;";
     $hiddenCoupon = "display:show;";
@@ -74,8 +74,8 @@ if(isset($_SESSION['coupon_code'])) {
                     foreach ($rows as $row) {
                         
                             $cartSubTotal += intval($row['price']) * intval($row['quantity']);
-                            if(isset($_SESSION['coupon_code'])) {
-                                $cartTotal = $_SESSION['cart_subtotal'];
+                            if(isset($_SESSION['coupon_code' . $userId])) {
+                                $cartTotal = $cartSubTotal - ($cartSubTotal * ($_SESSION['cart_discount' . $userId] / 100));
                             } else {
                                 $cartTotal = $cartSubTotal;
                             }
