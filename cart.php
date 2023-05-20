@@ -15,6 +15,17 @@ $stmt->execute();
 // Fetch all rows as an associative array
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $cartSubTotal = 0;
+if(isset($_SESSION['coupon_code'])) {
+    $appliedCoupon =  $_SESSION['coupon_code'];
+    // unset( $_SESSION['coupon_code']);
+    $appliedCouponStyle = "display: show;";
+    $hiddenCoupon = "display:none;";
+    $cartTotal = $_SESSION['cart_subtotal'];
+} else {
+    $appliedCouponStyle = "display: none;";
+    $hiddenCoupon = "display:show;";
+    $cartTotal = 0;
+}
 
 ?>
 <!DOCTYPE html>
@@ -61,7 +72,13 @@ $cartSubTotal = 0;
                 <?php
                     // Display the product information
                     foreach ($rows as $row) {
-                        $cartSubTotal += intval($row['price']) * intval($row['quantity']);
+                        
+                            $cartSubTotal += intval($row['price']) * intval($row['quantity']);
+                            if(isset($_SESSION['coupon_code'])) {
+                                $cartTotal = $_SESSION['cart_subtotal'];
+                            } else {
+                                $cartTotal = $cartSubTotal;
+                            }
 
                         ?>
 
@@ -84,11 +101,14 @@ $cartSubTotal = 0;
 
     <section id="cart-add" class="section-p1">
         <div id="coupon">
+            <div id="hiddenCoupon" style="<?php echo $hiddenCoupon; ?>">
             <h3>Apply Coupon</h3>
+            <input type="text" id="couponCodeInput" placeholder="Enter Your Coupon(Optional)">
+                    <button class="normal" id="applyCouponButton">Apply</button>
+                    </div>
             <div id="forms">
                 <form action="#" autocomplete="on">
-                    <input types="text" placeholder="Enter Your Coupon(Optional)" pattern="[A-Za-z]{5}">
-                    <button class="normal">Apply</button>
+                   
                     <input type="text" placeholder="Full Name"  id="name">
 
                     <input type="text" placeholder="Address Line"  id="address">
@@ -112,15 +132,19 @@ $cartSubTotal = 0;
             <table>
                 <tr>
                     <td>Cart Subtotal</td>
-                    <td><?php echo $cartSubTotal; ?>€</td>
+                    <td id="subTotalPrice"><?php echo $cartSubTotal; ?>€</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
                     <td bgcolor="green">Free</td>
                 </tr>
+                <tr id="appliedCoupon" style="<?php echo $appliedCouponStyle; ?>">
+                    <td>Coupon Applied</td>
+                    <td id="appliedCouponCode" bgcolor="green"><?php echo $appliedCoupon; ?></td>
+                </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong><?php echo $cartSubTotal; ?>€</strong></td>
+                    <td><strong id="totalPrice"><?php echo $cartTotal; ?>€</strong></td>
                 </tr>
             </table>
             
@@ -180,10 +204,10 @@ $cartSubTotal = 0;
 
 
     <script src="script.js"></script>
+    <script src="applyCoupon.js"></script>
 </body>
 
 </html>
 <?php
 
-    echo $i+=1;
 ?>

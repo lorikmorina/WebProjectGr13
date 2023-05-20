@@ -21,21 +21,20 @@ create table admins(
 );
 select * from users;
 
--- CREATE TABLE carts (
---   id INT auto_increment NOT NULL,
---   user_id INT NOT NULL,
---   product_id INT NOT NULL,
---   quantity INT NOT NULL,
---   PRIMARY KEY (id),
---   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
---   FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE
--- );
-
 CREATE TABLE carts (
+  id INT auto_increment NOT NULL,
   user_id INT NOT NULL,
   product_id INT NOT NULL,
   quantity INT NOT NULL,
-  PRIMARY KEY (user_id),
+  PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
   FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE
+);
+
+CREATE TABLE coupons (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  code VARCHAR(50) NOT NULL,
+  discount DECIMAL(5,2) NOT NULL,
+  active TINYINT(1) DEFAULT 1,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
