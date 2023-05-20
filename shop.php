@@ -110,7 +110,7 @@ if($pageNr <= 1) {
                     </div>
                     <h4><?php echo $product['price']; ?>€</h4>
                 </div>
-                <a href="addtocart.php?productId=<?php echo $product['id']; ?>"><i class="fas fa-shopping-cart cart"></i></a>
+                <a class="add-to-cart-btn" data-product-id="<?php echo $product['id']; ?>" data-quantity="1"><i class="fas fa-shopping-cart cart"></i></a>
             </div>
          </a>
            <?php }
@@ -189,6 +189,7 @@ if($pageNr <= 1) {
     </footer>
 
     <script src="script.js"></script>
+    <script src="addToCart.js"></script>
     <script src="randomTitle.js"></script>
 
 </body>

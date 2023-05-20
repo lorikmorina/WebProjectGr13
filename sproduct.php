@@ -55,14 +55,11 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
             <h2 id="price"><?php echo $products[0]['price']; ?>€</h2>
 
-            <form action="addtocart.php" method="GET" >
                 <label>Quantity: </label>
                 <input type="number" id="quantity" name="quantity" onchange="totalPrice(document.getElementById('quantity').value)"
                     value="1" min="1">
-                    <input type="hidden" name="productId" value="<?php echo $products[0]['id']; ?>">
-              <button type="submit" class="normal" >Add to
-                    Cart</button>
-            </form>
+                    <button class="normal" onclick="addToCart(<?php echo $products[0]['id']; ?>, document.getElementById('quantity').value)" >Add to Cart</i></button>
+
 
 
 
@@ -208,24 +205,8 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </footer>
 
-    <script>
-        var MainImg = document.getElementById("MainImg");
-        var smallimg = document.getElementsByClassName("smallimg");
-
-        smallimg[0].onclick = function () {
-            MainImg.src = smallimg[0].src;
-        }
-        smallimg[1].onclick = function () {
-            MainImg.src = smallimg[1].src;
-        }
-        smallimg[2].onclick = function () {
-            MainImg.src = smallimg[2].src;
-        }
-        smallimg[3].onclick = function () {
-            MainImg.src = smallimg[3].src;
-        }
-    </script>
-
+   
+    <script src="addToCart.js"></script>
     <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/49b85c6328.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -1,5 +1,5 @@
-<?php 
 
+<?php
 session_start();
 require_once('dbConfig.php');
 $productId = intval($_GET['productId']);
@@ -9,18 +9,17 @@ if(isset($_GET['quantity'])) {
     $quantity = $_GET['quantity'];
 } else {
     $quantity = 1;
-
 }
 
-    $sql = "INSERT INTO carts (user_id, product_id, quantity) VALUES (:user_id, :product_id, :quantity)";
-    $stmt = $conn->prepare($sql);
+$sql = "INSERT INTO carts (user_id, product_id, quantity) VALUES (:user_id, :product_id, :quantity)";
+$stmt = $conn->prepare($sql);
 
-    $stmt->bindParam(':user_id', $userId);
-    $stmt->bindParam(':product_id', $productId);
-    $stmt->bindParam(':quantity', $quantity);
+$stmt->bindParam(':user_id', $userId);
+$stmt->bindParam(':product_id', $productId);
+$stmt->bindParam(':quantity', $quantity);
 
-    $stmt->execute();
+$stmt->execute();
 
-    header("Location: shop.php");
-    
-    ?>
+$response = array('status' => 'success', 'message' => 'Product added to cart.');
+echo json_encode($response);
+?>
