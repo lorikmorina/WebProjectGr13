@@ -31,14 +31,13 @@ CREATE TABLE carts (
   FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE
 );
 
-<<<<<<< HEAD
 CREATE TABLE coupons (
   id INT AUTO_INCREMENT PRIMARY KEY,
   code VARCHAR(50) NOT NULL,
   discount DECIMAL(5,2) NOT NULL,
   active TINYINT(1) DEFAULT 1,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-=======
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+  
 create table userAddress (
     id int AUTO_INCREMENT not null,
     user_id int not null,
@@ -50,5 +49,4 @@ create table userAddress (
     phoneNumber int(50) not null,
     primary key(id),
     FOREIGN KEY(user_id) REFERENCES users (id) on DELETE CASCADE
->>>>>>> 0a68afc19ea7a8250bb1459194f87c3d14f1cc39
 );
