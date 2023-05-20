@@ -137,16 +137,16 @@ if(isset($_SESSION['coupon_code' . $userId])) {
     
                 <form action="manageAddress.php" method="POST">
                    
-                    <input type="text" placeholder="Full Name"  id="name" name="Name" value="<?php echo $fullName?>">
+                    <input type="text" placeholder="Full Name"  id="name" name="Name" value="<?php echo isset($fullName) ? $fullName : ''; ?>">
 
-                    <input type="text" placeholder="Address Line"  id="address" name="Address" value="<?php echo $address?>">
-                    <input type="text" placeholder="City"  id="city" name="City" value="<?php echo $city?>">
+                    <input type="text" placeholder="Address Line"  id="address" name="Address" value="<?php echo isset($address) ? $address : ''; ?>">
+                    <input type="text" placeholder="City"  id="city" name="City" value="<?php echo isset($city) ? $city : ''; ?>">
                     <br>
-                    <input type="text" placeholder="Postal Code"  id="postcode" name="Postcode" value="<?php echo $postalCode?>">
+                    <input type="text" placeholder="Postal Code"  id="postcode" name="Postcode" value="<?php echo isset($postalCode) ? $postalCode : ''; ?>">
                     <br>
-                    <input type="text" placeholder="Country"  id="country" name="Country" value="<?php echo $country?>">
+                    <input type="text" placeholder="Country"  id="country" name="Country" value="<?php echo isset($country) ? $country : ''; ?>">
                     <br>
-                    <input type="text" placeholder="Phone Number"  id="phone" name="PhoneNr" value="<?php echo $phoneNumber?>">
+                    <input type="text" placeholder="Phone Number"  id="phone" name="PhoneNr" value="<?php echo isset($phoneNumber) ? $phoneNumber : ''; ?>">
                     <br>
 
                     <br>
