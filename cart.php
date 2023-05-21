@@ -1,6 +1,9 @@
 <?php session_start();
 require_once('dbConfig.php');
-$userId = $_SESSION['id'];
+
+if(isset($_SESSION['id'])){
+    $userId = $_SESSION['id'];
+}
 
 // SQL query to fetch products from the user's cart
 $sql = "SELECT products.title, products.image, products.price,carts.id, carts.quantity
