@@ -74,14 +74,15 @@ if($pageNr <= 1) {
 
         <p>Save more with coupons & up to 40% off!</p>
         <?php
-            if($_SESSION['access'] == 0){ 
+              if(isset($_SESSION['access'])){
+                if($_SESSION['access'] == 0){  
                 echo 
                 '<div>'. 
                     '<button class="normal" id="show" name="addproduct"><a href="AddRemoveProducts.php" style="text-decoration:none;color:black;">Add</a></button>'.
                     '<button class="normal" id="show" name="manageProduct"><a href="manageProducts.php" style="text-decoration:none;color:black;">Manage</a></button>'.
                 '</div>';
             }
-           
+        }
         ?>
         <h3 id="randomTitle"></h3>
 
