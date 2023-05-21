@@ -78,6 +78,7 @@
 </div>
 
   <script  src="./FAQ.js"></script>
-
+  <script src="https://kit.fontawesome.com/49b85c6328.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>
