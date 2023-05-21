@@ -92,7 +92,7 @@ if($pageNr <= 1) {
    
 <!--  /////////MODAL Checkout/////////// -->
 
-<?php if(isset($_SESSION['access'])){?>
+
 <div id="open-modal"  class="modal-window">
   <div>
     <h1>Product added to cart!</h1>
@@ -103,9 +103,7 @@ if($pageNr <= 1) {
         <a href="cart.php">Checkout</a>
   </div>
 </div>
-<?php }else {
-    //   PUT HERE GO LOGIN if clicked
-}?>
+
     </div>
 </div>
 <!-- //////////////////// --> 
@@ -136,7 +134,7 @@ if($pageNr <= 1) {
                     <h4><?php echo $product['price']; ?>€</h4>
                 </div>
             
-                <a class="add-to-cart-btn" href="#open-modal" data-product-id="<?php echo $product['id']; ?>" data-quantity="1" ><i class="fas fa-shopping-cart cart"></i></a>
+                <a class="add-to-cart-btn" href="<?php if(isset($_SESSION['access'])){echo "#open-modal"; } else{echo "login.php";} ?>" data-product-id="<?php echo $product['id']; ?>" data-quantity="1" ><i class="fas fa-shopping-cart cart"></i></a>
            
             </div>
          </a>
