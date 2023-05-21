@@ -21,11 +21,31 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    
+    <script src="modal.js"></script>
+    <link rel="stylesheet" href="modal.css">
     <title>ProDetails</title>
 </head>
 
 <body>
+
+<!--  /////////MODAL Checkout/////////// -->
+
+
+<div id="open-modal" class="modal-window">
+  <div>
+    <h1>Product added to cart!</h1>
+    <div>Product succesfully added to cart!</div>
+    <br>
+    <div>
+        <a id="closeModal" class="modal-close">Shop more</a>
+        <a href="cart.php">Checkout</a>
+        
+</div>
+
+  </div>
+</div>
+</div>
+<!-- //////////////////// --> 
 <?php
 //    header here
    include("header.php");
@@ -77,7 +97,16 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
   updatePrice();
 });
 </script>
-                    <button class="normal" onclick="addToCart(<?php echo $products[0]['id']; ?>, document.getElementById('quantity').value)" >Add to Cart</i></button>
+                    <a class="normal" href="#open-modal" onclick="addToCart(<?php echo $products[0]['id']; ?>, document.getElementById('quantity').value)" style=" font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: #fff;
+    background-color: #088178;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;" >Add to Cart</i></a>
 
 
 
@@ -90,6 +119,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php } else {
     echo "This product doesn't exist";
 } ?>
+
 
     <section id="products" class="section-p1">
         <h2>Featured Products</h2>

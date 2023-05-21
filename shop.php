@@ -56,6 +56,8 @@ if($pageNr <= 1) {
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/49b85c6328.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="modal.js"></script>
+    <link rel="stylesheet" href="modal.css">
     <title>Shop</title>
 </head>
 
@@ -86,6 +88,27 @@ if($pageNr <= 1) {
 
     </section>
 
+   
+<!--  /////////MODAL Checkout/////////// -->
+
+
+<div id="open-modal" class="modal-window">
+  <div>
+    <h1>Product added to cart!</h1>
+    <div>Product succesfully added to cart!</div>
+    <br>
+    <div>
+        <a id="closeModal" class="modal-close">Shop more</a>
+        <a href="cart.php">Checkout</a>
+        
+</div>
+
+  </div>
+</div>
+</div>
+<!-- //////////////////// --> 
+
+
     <section id="products" class="section-p1">
 
         <div class="pro-container">
@@ -110,7 +133,7 @@ if($pageNr <= 1) {
                     </div>
                     <h4><?php echo $product['price']; ?>€</h4>
                 </div>
-                <a class="add-to-cart-btn" data-product-id="<?php echo $product['id']; ?>" data-quantity="1"><i class="fas fa-shopping-cart cart"></i></a>
+                <a class="add-to-cart-btn" href="#open-modal" data-product-id="<?php echo $product['id']; ?>" data-quantity="1"><i class="fas fa-shopping-cart cart"></i></a>
             </div>
          </a>
            <?php }

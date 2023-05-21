@@ -14,10 +14,10 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
                 if (response.status === 'success') {
-                    alert(response.message);  // Display success message
+                    // alert(response.message);  // Display success message
                     // Optionally update the cart count or perform any other actions
                 } else {
-                    alert(response.message);  // Display error message
+                    // alert(response.message);  // Display error message
                 }
             },
             error: function() {
@@ -40,10 +40,10 @@ function addToCart(productId, quantity) {
         dataType: 'json',
         success: function(response) {
             if (response.status === 'success') {
-                alert(response.message);  // Display success message
+                // alert(response.message);  // Display success message
                 // Optionally update the cart count or perform any other actions
             } else {
-                alert(response.message);  // Display error message
+                // alert(response.message);  // Display error message
             }
         },
         error: function() {
