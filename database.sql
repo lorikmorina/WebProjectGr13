@@ -11,6 +11,13 @@ create table users(
     primary key(id)
 );
 
+INSERT INTO `users` (`id`, `username`, `email`, `fullname`, `salt`, `saltedHash`) VALUES 
+(NULL, 'milo', 'milotq1@gmail.com', 'Milot Qorrolli', '', '$2y$10$hVOggB.jrheF.5bYXcaTYeCn6tt2uUmnVtn4XyIM/wek8mVNpRMy.'), 
+(NULL, 'milot', 'eqorrolli3@gmail.com', 'miloti', '', '$2y$10$JGxLZWhLI0DsnHrWKP10rOAhO6kM9qUFK8WKCiaw2/vCXCQ7Xj/eC'), 
+(NULL, 'miloti', 'miloti', 'Milot Qorrolli', '', '$2y$10$913z8tmHgxiIyrVfhYjIP.2a22bmUCaYGhqt7Gz.osDPibh11Uzlq'), 
+(NULL, 'ceni', 'ceni', 'ceni', '', '$2y$10$cfQdve62G93xFGCKAOGL3.iTSj1.p.DxlLL6Un8kbDA25LIHufGpC')
+
+
 create table admins(
 	id int auto_increment not Null,
     fullname varchar(50) not null,
@@ -19,6 +26,8 @@ create table admins(
 	salted_hash varchar(256) not null,
     primary key(id)
 );
+INSERT INTO `admins` (`id`, `fullname`, `email`, `username`, `saltedHash`) VALUES 
+(NULL, 'admin', 'admin', 'admin', '$2y$10$cfQdve62G93xFGCKAOGL3.iTSj1.p.DxlLL6Un8kbDA25LIHufGpC')
 
 
 
@@ -33,6 +42,14 @@ CREATE table products(
 	rating int not null,
     primary key(id)
 );
+
+INSERT INTO `products` (`id`, `title`, `author`, `description`, `price`, `image`, `category`, `rating`) VALUES 
+(NULL, 'Harry Potter and the Deathly Hallows', 'J. K. Rowling', 'Fantasy', '20', 'productImages/phpCA6C.tmp3311.jpg', 'featured', '5'), 
+(NULL, 'Harry Potter and the Chamber of Secrets ', ' J. K. Rowling', 'Fantasy', '20', 'productImages/php88FA.tmp9293.jpg', 'featured', '5'), 
+(NULL, 'Harry Potter and the Prisoner of Azkaban ', 'J. K. Rowling', 'Fantasy', '20', 'productImages/php5F6.tmp4900.jfif', 'featured', '5'), 
+(NULL, 'Harry Potter and the Goblet of Fire', 'J. K. Rowling', 'Fantasy', '20', 'productImages/phpF827.tmp316.jpg', 'featured', '5'), 
+(NULL, 'Harry Potter and the Half-Blood Prince ', 'J. K. Rowling', 'Fantasy', '20', 'productImages/phpD7BB.tmp4394.jfif', 'newArrival', '5');
+
 
 CREATE TABLE carts (
   id INT auto_increment NOT NULL,

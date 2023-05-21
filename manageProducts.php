@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['email']) && $_SESSION['email'] == 'admin@proread.com') {
+if(isset($_SESSION['email']) && $_SESSION['email'] == 'admin') {
 
 } else {
     header("Location: login.php");
