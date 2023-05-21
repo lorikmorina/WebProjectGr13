@@ -97,7 +97,12 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
   updatePrice();
 });
 </script>
-                    <a class="normal" href="#open-modal" onclick="addToCart(<?php echo $products[0]['id']; ?>, document.getElementById('quantity').value)" style=" font-size: 14px;
+                    <a class="normal" href="<?php if(isset($_SESSION['access'])){
+                        echo "#open-modal"; }
+                        else {
+                            echo 'login.php';
+                        }
+                      ?>" onclick="addToCart(<?php echo $products[0]['id']; ?>, document.getElementById('quantity').value)" style=" font-size: 14px;
     font-weight: 600;
     padding: 15px 30px;
     color: #fff;
