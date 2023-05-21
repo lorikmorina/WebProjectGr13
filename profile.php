@@ -65,7 +65,7 @@ $showParagraph = false;
 								<div class="form-group">
 								  	<label>Full Name</label><br>
 								  	<label style="font-size:20px;color:red;"><?php 
-										echo $_SESSION['user'];
+										echo $_SESSION['fullname'];
 									?></label>
 								</div>
 							</div>
@@ -80,8 +80,10 @@ $showParagraph = false;
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-								  	<label>Phone number</label>
-								  	<input type="text" class="form-control" value="+91 9876543215">
+								  	<label>Username</label><br>
+								  	<label style="font-size:20px;color:red;"><?php 
+										echo $_SESSION['user'];
+									?></label>
 								</div>
 							</div>
 							<div class="col-md-6">
