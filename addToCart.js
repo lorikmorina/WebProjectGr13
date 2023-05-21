@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('.add-to-cart-btn').click(function() {
         var productId = $(this).data('product-id');
-        var quantity = $(this).data('quantity'); // Use default value from data-quantity attribute
+        var quantity = 1; // Use default value from data-quantity attribute
 
 
         $.ajax({

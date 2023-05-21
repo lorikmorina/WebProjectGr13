@@ -190,7 +190,6 @@ if($pageNr <= 1) {
 
     <script src="script.js"></script>
     <script src="addToCart.js"></script>
-    <script src="randomTitle.js"></script>
 
 </body>
 
