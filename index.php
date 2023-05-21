@@ -126,9 +126,9 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </section>
     <section id="banner" class="section-m1">
-        <h4>Borrow Books</h4>
-        <h2>Get the <span>Best Offers</span>- To Borrow all kinds of books</h2>
-        <button class="normal">Explore More</button>
+        <h4>Go on Twitter</h4>
+        <h2>Enjoy some amazing tweets about Books</h2>
+        <button id="exploreButton" class="normal">Explore Tweets</button>
 
     </section>
     <section id="products" class="section-p1">
@@ -271,6 +271,11 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </footer>
     <script src="script.js" defer></script>
     <script src="addToCart.js"></script>
+    <script>
+        document.getElementById('exploreButton').addEventListener('click', function() {
+        window.location.href = 'tweets.php';
+        });
+    </script>
     
 </body>
 
