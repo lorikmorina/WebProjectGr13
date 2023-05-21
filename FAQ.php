@@ -49,6 +49,7 @@
 <body>
 <?php include("header.php") ?>
 <?php 
+if(isset($_SESSION['access'])){
   if($_SESSION['access']==0){?>
    
     <form action="saveAnswer.php" method="POST">
@@ -59,7 +60,8 @@
       <input type="text" name="answer" style="color:black;font-size:30px;">
       <input type="submit" name = "submit">
     </form>';
-<?php } ?>
+<?php }
+} ?>
 
 
 <div class="containerFluid">

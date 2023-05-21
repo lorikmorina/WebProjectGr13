@@ -73,6 +73,7 @@
     <section>
 
     <section>
+        <?php if(isset($_SESSION['access'])) {?>
     <a href="askquestion.php" style="text-decoration:none; color:white;">
         <button style="
         width:250px;
@@ -84,6 +85,7 @@
         background:rgb(36,42,47);
         color:white;
         ">Ask a Question</button></a>
+        <?php }?>
     </section>
 
     </section>
