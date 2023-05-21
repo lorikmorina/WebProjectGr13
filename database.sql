@@ -6,16 +6,16 @@ create table users(
     username varchar(50) not null,
     email  varchar(50) not null,
     fullname  varchar(30) not null,
-    salt  varchar(256) not null,
 	salted_hash varchar(256) not null,
     primary key(id)
 );
 
-INSERT INTO `users` (`id`, `username`, `email`, `fullname`, `salt`, `saltedHash`) VALUES 
-(NULL, 'milo', 'milotq1@gmail.com', 'Milot Qorrolli', '', '$2y$10$hVOggB.jrheF.5bYXcaTYeCn6tt2uUmnVtn4XyIM/wek8mVNpRMy.'), 
-(NULL, 'milot', 'eqorrolli3@gmail.com', 'miloti', '', '$2y$10$JGxLZWhLI0DsnHrWKP10rOAhO6kM9qUFK8WKCiaw2/vCXCQ7Xj/eC'), 
-(NULL, 'miloti', 'miloti', 'Milot Qorrolli', '', '$2y$10$913z8tmHgxiIyrVfhYjIP.2a22bmUCaYGhqt7Gz.osDPibh11Uzlq'), 
-(NULL, 'ceni', 'ceni', 'ceni', '', '$2y$10$cfQdve62G93xFGCKAOGL3.iTSj1.p.DxlLL6Un8kbDA25LIHufGpC')
+INSERT INTO `users` (`id`, `username`, `email`, `fullname`, `saltedHash`) VALUES 
+(NULL, 'milo', 'milotq1@gmail.com', 'Milot Qorrolli', '$2y$10$hVOggB.jrheF.5bYXcaTYeCn6tt2uUmnVtn4XyIM/wek8mVNpRMy.'), 
+(NULL, 'milot', 'eqorrolli3@gmail.com', 'miloti', '$2y$10$hVOggB.jrheF.5bYXcaTYeCn6tt2uUmnVtn4XyIM/wek8mVNpRMy.'), 
+(NULL, 'hysen', 'hysen@gmail.com', 'Hysen Lubovci', '$2y$10$hVOggB.jrheF.5bYXcaTYeCn6tt2uUmnVtn4XyIM/wek8mVNpRMy.'), 
+(NULL, 'lorik', 'lorik03000@gmail.com', 'Lorik Morina', '$2y$10$hVOggB.jrheF.5bYXcaTYeCn6tt2uUmnVtn4XyIM/wek8mVNpRMy.');
+--pass milot
 
 
 create table admins(
@@ -27,7 +27,7 @@ create table admins(
     primary key(id)
 );
 INSERT INTO `admins` (`id`, `fullname`, `email`, `username`, `saltedHash`) VALUES 
-(NULL, 'admin', 'admin', 'admin', '$2y$10$cfQdve62G93xFGCKAOGL3.iTSj1.p.DxlLL6Un8kbDA25LIHufGpC')
+(NULL, 'admin', 'admin', 'admin', '$2y$10$cfQdve62G93xFGCKAOGL3.iTSj1.p.DxlLL6Un8kbDA25LIHufGpC') --milot
 
 
 
@@ -68,6 +68,14 @@ CREATE TABLE coupons (
   active TINYINT(1) DEFAULT 1,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   );
+INSERT INTO coupons (code, discount, active) VALUES
+('SUMMER10', 10.00, 1),
+('SALE20', 20.00, 1),
+('FREE', 100.00, 1),
+('DISCOUNT15', 15.00, 0),
+('HOLIDAY25', 25.00, 1);
+ 
+
 
 create table useraddress (
     id int AUTO_INCREMENT not null,
@@ -88,6 +96,11 @@ create table questions (
     primary key(id),
     FOREIGN KEY(user_id) REFERENCES users (id) on DELETE CASCADE
 );
+
+INSERT INTO `questions` (`id`, `user_id`, `question`) VALUES 
+(NULL, '1', 'Will there be any other book?'), 
+(NULL, '2', 'How can I recommend a book?')
+
 create table answers (
     id int AUTO_INCREMENT not null,
     question_id int not null,
@@ -95,3 +108,10 @@ create table answers (
     primary key(id),
     FOREIGN KEY(question_id) REFERENCES questions (id) on DELETE CASCADE
 );
+
+INSERT INTO `answers` (`id`, `question_id`, `answer`) VALUES 
+(NULL, '1', 'We are constantly exploring new books and expanding our collection. 
+Our team is dedicated to curating a diverse and engaging selection of books for our readers. 
+Stay tuned for updates on new book releases and additions to our catalog. '), 
+(NULL, '2', 'We understand your curiosity about upcoming book releases. 
+While we strive to continually expand our collection, we cannot provide specific information about future book additions at this time.')
