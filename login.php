@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 
 
 ?>
@@ -43,7 +43,7 @@
                 <input type="password" class="form-control" placeholder="Password" required="required" name="password">
             </div>
             <div class="form-group small clearfix">
-                <label class="checkbox-inline"><input type="checkbox"> Remember me</label>
+                <label class="checkbox-inline"><input type="checkbox" name="rememberMe"> Remember me</label>
                 <a href="#" class="forgot-link">Forgot Password?</a>
             </div>
             <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">

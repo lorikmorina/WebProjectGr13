@@ -1,6 +1,11 @@
 <?php 
 session_start();
-
+if(isset($_COOKIE['logged_in_user'])) {
+    $_SESSION['user'] = $_COOKIE['logged_in_user'];
+    $_SESSION['id'] = $_COOKIE['logged_in_id'];
+    $_SESSION['email'] = $_COOKIE['logged_in_email'];
+    header("location: index.php");
+ }
 require_once("dbConfig.php");
 
 $query = "SELECT * FROM products LIMIT 8";

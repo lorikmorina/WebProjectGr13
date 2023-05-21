@@ -4,6 +4,12 @@
      // Set the values of the parameters
      $username = $_POST["username"];
      $password = $_POST["password"]; 
+     $rememberMe = $_POST["rememberMe"]; 
+ 
+        
+        
+
+     
 try {
     
     $stm = $conn->prepare("SELECT * FROM users WHERE username = :username");
@@ -28,6 +34,14 @@ try {
             $_SESSION['user'] = $username;
             $_SESSION['id'] = $id;
             $_SESSION['email'] = $email;
+
+            if(isset($rememberMe) && !isset($_COOKIE['logged_in_user'])) {
+                $cookieExpiration = time() + (60 * 60 * 24 * 30); // Set the cookie to expire in 30 days
+                setcookie('logged_in_user', $username, $cookieExpiration);
+                setcookie('logged_in_id', $id, $cookieExpiration);
+                setcookie('logged_in_email', $email, $cookieExpiration);
+             }
+
             header("location: index.php");
         } else {
             header("location: login.php?error=Password is incorrect!");
@@ -41,6 +55,9 @@ try {
             $_SESSION['user'] = $username;
             $_SESSION['id'] = $id;
             $_SESSION['email'] = $email;
+
+           
+
             header("location: index.php");
         } else {
             header("location: login.php?error=Password is incorrect!");
