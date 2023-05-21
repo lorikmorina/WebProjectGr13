@@ -1,5 +1,10 @@
 <?php
 session_start();
+if(isset($_SESSION['email']) && $_SESSION['email'] == 'admin@proread.com') {
+
+} else {
+    header("Location: login.php");
+}
 require_once 'dbConfig.php'; 
 $category = $_GET['category'];
  if($category == 'featured') {

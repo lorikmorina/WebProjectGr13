@@ -1,6 +1,13 @@
 <?php
     require_once('dbConfig.php');
     session_start();
+    session_start();
+if(isset($_SESSION['email'])) {
+
+} else {
+    header("Location: login.php");
+}
+
     if(isset($_POST['btn'])) {
         $old_password =$_POST["old_password"];
         $new_password =$_POST["new_password"];
